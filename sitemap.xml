@@ -2,7 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shenglinonly.github.io/tags/index.html</loc>
+    
+    <lastmod>2022-09-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shenglinonly.github.io/posts/47caaf1e.html</loc>
+    
+    <lastmod>2022-09-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shenglinonly.github.io/posts/ae2194f7.html</loc>
+    
+    <lastmod>2022-09-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shenglinonly.github.io/posts/8e54a7ca.html</loc>
+    
+    <lastmod>2022-09-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shenglinonly.github.io/posts/86ffb75.html</loc>
+    
+    <lastmod>2022-09-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shenglinonly.github.io/posts/0.html</loc>
+    
+    <lastmod>2022-09-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shenglinonly.github.io/posts/cafa152b.html</loc>
+    
+    <lastmod>2022-09-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shenglinonly.github.io/about.html</loc>
     
     <lastmod>2022-09-26</lastmod>
     
@@ -13,70 +76,7 @@
   <url>
     <loc>https://shenglinonly.github.io/categories/index.html</loc>
     
-    <lastmod>2022-09-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shenglinonly.github.io/tags/index.html</loc>
-    
-    <lastmod>2022-09-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shenglinonly.github.io/posts/cafa152b.html</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shenglinonly.github.io/about.html</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shenglinonly.github.io/posts/8e54a7ca.html</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shenglinonly.github.io/posts/86ffb75.html</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shenglinonly.github.io/posts/ae2194f7.html</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shenglinonly.github.io/posts/0.html</loc>
-    
-    <lastmod>2022-09-23</lastmod>
+    <lastmod>2022-09-26</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
