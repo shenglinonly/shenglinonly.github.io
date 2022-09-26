@@ -1,0 +1,312 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>自制翻译小软件 | Shining</title><meta name="keywords" content="python, pyqt5"><meta name="author" content="shenglinonly"><meta name="copyright" content="shenglinonly"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="自制翻译小软件效果预览 !  软件采用Python, PyQt5等技术, 从底层逻辑到页面设计都是小编亲手设计的, 满满自豪感😊! 底层逻辑爬虫 底层的翻译功能是对接到了有道翻译, 采用爬虫的方式, 调取接口,部分代码如下  12345678910111213141516171819202122232425262728293031def translate(word):    with open">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自制翻译小软件">
+<meta property="og:url" content="https://shenglinonly.github.io/posts/8e54a7ca.html">
+<meta property="og:site_name" content="Shining">
+<meta property="og:description" content="自制翻译小软件效果预览 !  软件采用Python, PyQt5等技术, 从底层逻辑到页面设计都是小编亲手设计的, 满满自豪感😊! 底层逻辑爬虫 底层的翻译功能是对接到了有道翻译, 采用爬虫的方式, 调取接口,部分代码如下  12345678910111213141516171819202122232425262728293031def translate(word):    with open">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/07/23/3lSRjPtKsId6ZJf.png">
+<meta property="article:published_time" content="2022-09-23T02:00:01.000Z">
+<meta property="article:modified_time" content="2022-09-23T05:53:38.327Z">
+<meta property="article:author" content="shenglinonly">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/07/23/3lSRjPtKsId6ZJf.png"><link rel="shortcut icon" href="/img/fav2.png"><link rel="canonical" href="https://shenglinonly.github.io/posts/8e54a7ca"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '自制翻译小软件',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-23 13:53:38'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/about"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2022/07/23/3lSRjPtKsId6ZJf.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Shining</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/about"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">自制翻译小软件</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-23T02:00:01.000Z" title="发表于 2022-09-23 10:00:01">2022-09-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-23T05:53:38.327Z" title="更新于 2022-09-23 13:53:38">2022-09-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">673</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="自制翻译小软件"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="自制翻译小软件"><a href="#自制翻译小软件" class="headerlink" title="自制翻译小软件"></a>自制翻译小软件</h1><p><strong>效果预览 !</strong></p>
+<p><img src="https://s2.loli.net/2022/07/23/3lSRjPtKsId6ZJf.png" alt="Snipaste_2022-07-22_20-59-41.png"></p>
+<p><strong>软件采用Python, PyQt5等技术, 从底层逻辑到页面设计都是小编亲手设计的, 满满自豪感😊!</strong></p>
+<h2 id="底层逻辑"><a href="#底层逻辑" class="headerlink" title="底层逻辑"></a>底层逻辑</h2><h3 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h3><blockquote>
+<p><strong>底层的翻译功能是对接到了有道翻译, 采用爬虫的方式, 调取接口,部分代码如下</strong></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">translate</span>(<span class="params">word</span>):</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;js_decrypt.js&#x27;</span>, mode=<span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        js_code = f.read()</span><br><span class="line">    compile_result = execjs.<span class="built_in">compile</span>(js_code)</span><br><span class="line">    encode_result = compile_result.call(<span class="string">&#x27;youdao&#x27;</span>, word)  <span class="comment"># js加密后的结果</span></span><br><span class="line"></span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;i&#x27;</span>: word,</span><br><span class="line">        <span class="string">&#x27;from&#x27;</span>: <span class="string">&#x27;AUTO&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;to&#x27;</span>: <span class="string">&#x27;AUTO&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;smartresult&#x27;</span>: <span class="string">&#x27;dict&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;client&#x27;</span>: <span class="string">&#x27;fanyideskweb&#x27;</span>,</span><br><span class="line">        <span class="comment"># &#x27;salt&#x27;: &#x27;16371554646124&#x27;,</span></span><br><span class="line">        <span class="comment"># &#x27;sign&#x27;: &#x27;6b299f9b6b4e40586ca521654f29dbcd&#x27;,</span></span><br><span class="line">        <span class="comment"># &#x27;lts&#x27;: &#x27;1637155464612&#x27;,</span></span><br><span class="line">        <span class="comment"># &#x27;bv&#x27;: &#x27;c795a332c678d5063a1ee5eb15253848&#x27;,</span></span><br><span class="line">        <span class="string">&#x27;doctype&#x27;</span>: <span class="string">&#x27;json&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;version&#x27;</span>: <span class="string">&#x27;2.1&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;keyfrom&#x27;</span>: <span class="string">&#x27;fanyi.web&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;action&#x27;</span>: <span class="string">&#x27;FY_BY_REALTlME&#x27;</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    data.update(encode_result)</span><br><span class="line"></span><br><span class="line">    response = requests.post(url=youdao_url, data=data, headers=headers)</span><br><span class="line">    json_data = response.json()</span><br><span class="line">    <span class="comment"># print(json_data)</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;&quot;&quot;提取翻译的结果&quot;&quot;&quot;</span></span><br><span class="line">    trans_result = json_data[<span class="string">&#x27;translateResult&#x27;</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="string">&#x27;tgt&#x27;</span>]</span><br><span class="line">    <span class="comment"># print(translateResult)</span></span><br><span class="line">    <span class="keyword">return</span> trans_result</span><br></pre></td></tr></table></figure>
+
+<h3 id="js-解密"><a href="#js-解密" class="headerlink" title="js 解密"></a>js 解密</h3><blockquote>
+<p><strong>因为其中的请求字段还遇到了 js 加密, 所以我们还需要进行 js 解密, js 解密部分代码如下 (完整代码可以自行网上搜索哦)</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="keyword">function</span> (<span class="params">e, t</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> e &lt;&lt; t | e &gt;&gt;&gt; <span class="number">32</span> - t</span><br><span class="line">&#125;</span><br><span class="line">    , r = <span class="keyword">function</span> (<span class="params">e, t</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> n, r, i, o, a;</span><br><span class="line">    <span class="keyword">return</span> i = <span class="number">2147483648</span> &amp; e,</span><br><span class="line">        o = <span class="number">2147483648</span> &amp; t,</span><br><span class="line">        n = <span class="number">1073741824</span> &amp; e,</span><br><span class="line">        r = <span class="number">1073741824</span> &amp; t,</span><br><span class="line">        a = (<span class="number">1073741823</span> &amp; e) + (<span class="number">1073741823</span> &amp; t),</span><br><span class="line">        n &amp; r ? <span class="number">2147483648</span> ^ a ^ i ^ o : n | r ? <span class="number">1073741824</span> &amp; a ? <span class="number">3221225472</span> ^ a ^ i ^ o : <span class="number">1073741824</span> ^ a ^ i ^ o : a ^ i ^ o</span><br><span class="line">&#125;</span><br><span class="line">    , i = <span class="keyword">function</span> (<span class="params">e, t, n</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> e &amp; t | ~e &amp; n</span><br><span class="line">&#125;</span><br><span class="line">    , o = <span class="keyword">function</span> (<span class="params">e, t, n</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> e &amp; n | t &amp; ~n</span><br><span class="line">&#125;</span><br><span class="line">    , a = <span class="keyword">function</span> (<span class="params">e, t, n</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> e ^ t ^ n</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="页面设计"><a href="#页面设计" class="headerlink" title="页面设计"></a>页面设计</h2><h3 id="图形界面"><a href="#图形界面" class="headerlink" title="图形界面"></a>图形界面</h3><blockquote>
+<p><strong>页面设计核心技术用到pyqt5, 设计软件用到qtdesigner, 这款软件设计起来还是很方便的, 很多控件直接拖拽即可, 最后布个局就完啦, 关于pyqt5可以看这个<a target="_blank" rel="noopener" href="https://www.byhy.net/tut/py/gui/qt_01/">网站</a>哦, 个人认为还是很详细的</strong>.</p>
+</blockquote>
+<h3 id="控件逻辑"><a href="#控件逻辑" class="headerlink" title="控件逻辑"></a>控件逻辑</h3><p>本软件有<code>点击翻译</code>和<code>清空文本</code>等功能, 并且需要与翻译脚本通信, 具体代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PyQt5 <span class="keyword">import</span> uic</span><br><span class="line"><span class="keyword">from</span> translates <span class="keyword">import</span> translate <span class="keyword">as</span> trans</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Stats</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.ui = uic.loadUi(<span class="string">&quot;ui\\translate.ui&quot;</span>)</span><br><span class="line">        self.ui.pushButton.clicked.connect(self.translate)</span><br><span class="line">        self.ui.pushButton_2.clicked.connect(self.remove)</span><br><span class="line">        <span class="comment"># self.trans = trans(self.trans_text)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">translate</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">run</span>():</span><br><span class="line">            trans_text = self.ui.textEdit.toPlainText()</span><br><span class="line">            trans_result = trans(trans_text)</span><br><span class="line">            <span class="keyword">return</span> trans_result</span><br><span class="line">        thread = Thread(target=run)</span><br><span class="line">        thread.start()</span><br><span class="line">        self.ui.textEdit_2.setPlainText(run())</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">remove</span>(<span class="params">self</span>):</span><br><span class="line">        self.ui.textEdit_2.setPlainText(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        self.ui.textEdit.setPlainText(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><p>打包用到了pyinstaller, 一行命令就解决啦</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller -F -w -i logo.ico main.py</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>这就是整个软件的思路和步骤啦, 感兴趣的小伙伴可以点个赞哦</strong>👍</p>
+<p>​                                                                                                            —–作者shiningonly</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://shenglinonly.github.io">shenglinonly</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://shenglinonly.github.io/posts/8e54a7ca.html">https://shenglinonly.github.io/posts/8e54a7ca.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://shenglinonly.github.io" target="_blank">Shining</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/python/">python</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2022/07/23/3lSRjPtKsId6ZJf.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/cafa152b.html"><img class="prev-cover" src="/img/cover4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">新服务器的准备工作</div></div></a></div><div class="next-post pull-right"><a href="/posts/ae2194f7.html"><img class="next-cover" src="/img/cover3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">termux文件访问</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">shenglinonly</div><div class="author-info__description">shiningonly 个人博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/shenglinonly"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/shenglinonly" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:shenglinonly@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%88%B6%E7%BF%BB%E8%AF%91%E5%B0%8F%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">自制翻译小软件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%95%E5%B1%82%E9%80%BB%E8%BE%91"><span class="toc-number">1.1.</span> <span class="toc-text">底层逻辑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB"><span class="toc-number">1.1.1.</span> <span class="toc-text">爬虫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js-%E8%A7%A3%E5%AF%86"><span class="toc-number">1.1.2.</span> <span class="toc-text">js 解密</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.2.</span> <span class="toc-text">页面设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2"><span class="toc-number">1.2.1.</span> <span class="toc-text">图形界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E4%BB%B6%E9%80%BB%E8%BE%91"><span class="toc-number">1.2.2.</span> <span class="toc-text">控件逻辑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8C%85"><span class="toc-number">1.3.</span> <span class="toc-text">打包</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/47caaf1e.html" title="markdown基本语法"><img src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="markdown基本语法"/></a><div class="content"><a class="title" href="/posts/47caaf1e.html" title="markdown基本语法">markdown基本语法</a><time datetime="2022-09-24T10:11:33.549Z" title="发表于 2022-09-24 18:11:33">2022-09-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/cafa152b.html" title="新服务器的准备工作"><img src="/img/cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="新服务器的准备工作"/></a><div class="content"><a class="title" href="/posts/cafa152b.html" title="新服务器的准备工作">新服务器的准备工作</a><time datetime="2022-09-23T03:00:00.000Z" title="发表于 2022-09-23 11:00:00">2022-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/8e54a7ca.html" title="自制翻译小软件"><img src="https://s2.loli.net/2022/07/23/3lSRjPtKsId6ZJf.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="自制翻译小软件"/></a><div class="content"><a class="title" href="/posts/8e54a7ca.html" title="自制翻译小软件">自制翻译小软件</a><time datetime="2022-09-23T02:00:01.000Z" title="发表于 2022-09-23 10:00:01">2022-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/ae2194f7.html" title="termux文件访问"><img src="/img/cover3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="termux文件访问"/></a><div class="content"><a class="title" href="/posts/ae2194f7.html" title="termux文件访问">termux文件访问</a><time datetime="2022-09-22T23:46:01.000Z" title="发表于 2022-09-23 07:46:01">2022-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/86ffb75.html" title="入党志愿书模板"><img src="/img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="入党志愿书模板"/></a><div class="content"><a class="title" href="/posts/86ffb75.html" title="入党志愿书模板">入党志愿书模板</a><time datetime="2022-09-22T13:21:26.178Z" title="发表于 2022-09-22 21:21:26">2022-09-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022-09 - 2022 By shenglinonly</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="2462290080" data-server="tencent" data-type="playlist" data-order="list" data-fixed="true" data-preload="auto" data-autoplay="false" data-mutex="true" ></div><script data-pjax src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script src="/js/ntmd.js"></script><script src="/js/test.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="I,LOVE,YOU" data-fontsize="15px" data-random="false" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(/img/categoryBar1.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/代码/&quot;);" href="javascript:void(0);">代码</a><span class="categoryBar-list-count">4</span><span class="categoryBar-list-descr">代码</span></li><li class="categoryBar-list-item" style="background:url(/img/categoryBar2.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/生活/&quot;);" href="javascript:void(0);">生活</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">学习</span></li><li class="categoryBar-list-item" style="background:url(/img/categoryBar3.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/学习/&quot;);" href="javascript:void(0);">学习</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">生活</span></li></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/0.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/img/cover.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-21</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/0.html&quot;);" href="javascript:void(0);" alt="">数码管的共阳和共阴</a><div class="blog-slider__text">自个点进去看!</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/0.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/86ffb75.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/img/cover2.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-22</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/86ffb75.html&quot;);" href="javascript:void(0);" alt="">入党志愿书模板</a><div class="blog-slider__text">自个点进去看!</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/86ffb75.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/cafa152b.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/img/cover4.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-23</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/cafa152b.html&quot;);" href="javascript:void(0);" alt="">新服务器的准备工作</a><div class="blog-slider__text">自个点进去看!</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/cafa152b.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/ae2194f7.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/img/cover3.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-23</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/ae2194f7.html&quot;);" href="javascript:void(0);" alt="">termux文件访问</a><div class="blog-slider__text">自个点进去看!</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/ae2194f7.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/8e54a7ca.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://s2.loli.net/2022/07/23/3lSRjPtKsId6ZJf.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-23</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/8e54a7ca.html&quot;);" href="javascript:void(0);" alt="">自制翻译小软件</a><div class="blog-slider__text">自个点进去看!</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/8e54a7ca.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/js/swiper.min.js"></script><script defer data-pjax src="https://cdn.cbd.int/hexo-butterfly-swiper/lib/swiper_init.js"></script><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = 'dea6d70bf1874372a3187e653e191246';
+  var gaud_map_key = '17d90594535d408c78176d1fae8b8fb4';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '113.382391,22.521113';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><!-- hexo injector body_end end --></body></html>
