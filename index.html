@@ -1,18 +1,7 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Shining - 两情若是久长时</title><meta name="keywords" content="hexo, blog, shiningonly, shenglinonly, webstorm"><meta name="author" content="shenglinonly"><meta name="copyright" content="shenglinonly"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="shiningonly 个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Shining">
-<meta property="og:url" content="https://shenglinonly.github.io/index.html">
-<meta property="og:site_name" content="Shining">
-<meta property="og:description" content="shiningonly 个人博客">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://shenglinonly.github.io/img/avatar.jpg">
-<meta property="article:author" content="shenglinonly">
-<meta property="article:tag" content="hexo, blog, shiningonly, shenglinonly, webstorm">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://shenglinonly.github.io/img/avatar.jpg"><link rel="shortcut icon" href="/img/fav2.png"><link rel="canonical" href="https://shenglinonly.github.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Shining - 两情若是久长时</title><meta name="author" content="shenglinonly"><meta name="copyright" content="shenglinonly"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="shiningonly 个人博客"><link rel="shortcut icon" href="/img/fav2.png"><link rel="canonical" href="https://shiningonly.top/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
   translate: undefined,
   noticeOutdate: undefined,
   highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
@@ -26,7 +15,7 @@
     post: false
   },
   runtime: '',
-  date_suffix: {
+  dateSuffix: {
     just: '刚刚',
     min: '分钟前',
     hour: '小时前',
@@ -44,14 +33,18 @@
   },
   isPhotoFigcaption: false,
   islazyload: false,
-  isAnchor: false
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: 'Shining',
   isPost: false,
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2022-09-30 08:58:24'
+  postUpdate: '2023-06-28 14:28:40'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -108,6 +101,21 @@
       document.head.appendChild(script)
     })
   
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
       win.activateDarkMode = function () {
         document.documentElement.setAttribute('data-theme', 'dark')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
@@ -140,114 +148,217 @@
       }
     }
     detectApple()
-    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/about"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/index_img.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Shining</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/about"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Shining</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/shenglinonly" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:shenglinonly@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/posts/47caaf1e.html" title="markdown基本语法"><img class="post_bg" src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="markdown基本语法"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/47caaf1e.html" title="markdown基本语法">markdown基本语法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-24T10:11:33.549Z" title="发表于 2022-09-24 18:11:33">2022-09-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></span></div><div class="content">@TOC
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/load.css?1"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" src="https://shiningonly.oss-cn-shenzhen.aliyuncs.com/img/Aesthetic-Laptop-Wallpaper-4k.jpg"/><div class="loading-image-dot"></div><div id="loading-percentage">0%</div></div></div><script>const loadingPercentage = document.getElementById("loading-percentage");
+loadingPercentage.style.color = "black";
+let loadingPercentageTimer = setInterval(function() {
+  var progressBar = document.querySelector(".pace-progress");
+  if (!progressBar) return
+  var currentValue = progressBar.getAttribute("data-progress-text");
+  if (currentValue !== loadingPercentage.textContent) {
+    loadingPercentage.textContent = currentValue;
+    if (currentValue === "100%") {
+      clearInterval(loadingPercentageTimer);
+    }
+  }
+}, 100);
+const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="/css/progress_bar.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/about"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Shining"><span class="site-name">Shining</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/about"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Shining</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/shenglinonly" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:shenglinonly@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/posts/7ce14fdc.html" title="三菱plc+ python打造智能温湿度系统"><img class="post-bg" src="https://shiningonly.oss-cn-shenzhen.aliyuncs.com/typora/image-20230625185356596.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="三菱plc+ python打造智能温湿度系统"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/7ce14fdc.html" title="三菱plc+ python打造智能温湿度系统">三菱plc+ python打造智能温湿度系统</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-25T11:13:25.000Z" title="发表于 2023-06-25 19:13:25">2023-06-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E4%B8%93%E4%B8%9A/">专业</a></span></div><div class="content">三菱plc+ python打造智能温湿度系统本项目基于三菱plc系列的FX3N, 通过python搭建客户端实现远程控制. 因经费有限再加上只交作业, 所以plc采用凌一plc模拟器来实现plc基本功能和基于modbus 协议的网络通信
+硬件端
+核心硬件为plc,所接外设有温湿度传感器和网络模块
+所用 plc 为fx 系列的FX3N, 编程软件为GX works2 。plc 方面只实现了简单的基本开关比较逻辑
+
+梯形图
+
+仿真
+模拟仿真用到了凌一plc模拟器, 自带tcp协议
+
+
+当按下指定的输入端口时,输出端口按照所写梯形图逻辑变化
+客户端python
+后端采用python的flask框架搭建, 编写相应的显示控制逻辑
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879from flask import Flask, render_tem ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/deff236f.html" title="继电保护知识点"><img class="post-bg" src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="继电保护知识点"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/deff236f.html" title="继电保护知识点">继电保护知识点</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-18T12:19:05.000Z" title="发表于 2023-05-18 20:19:05">2023-05-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%B8%93%E4%B8%9A/">专业</a></span></div><div class="content">继电保护知识点总结第一章
+电力系统运行状态概念及对应三种状态:
+正常(电力系统以足够的电功率满足符合对电能的需求等)
+
+
+不正常(正常工作遭到破坏但还未形成故障,可继续运行一段时间的情况)
+故障(电力系统的所有一次设备在运行过程中由于外力、绝缘老化、误操作、设计制造缺陷等原因会发生如短路,断线等故障)
+2、电力系统运行控制目的:
+通过自动和人工的控制,使电力系统尽快摆脱不正常运行状态和故障状态,能够长时间的在正常状态下运行。
+3、电力系统继电保护:
+泛指继电保护技术和由各种继电保护装置组成的继电保护系充。
+
+继电保护装置:
+
+指能反应电力系统中电气设备发生故障或不正常运行状态,并动作与断路器跳闸或发出信号的一种自动装置。
+5、事故:
+指系统或其中一部分的正常工作遭到破坏,并造成对用户停电或少送电或电能质量变坏到不能允许的地步,甚至造成人身伤亡和电气设备损坏的事件。
+6、故障/不正常运行状态:
+电力系统的所有一-次设备在运行过程中由于外力、绝缘老化、误操作、设计制造缺陷等原因会发生如短路,断线等。
+7、电力系统继电保护基本任务/作用:
+(1)自动、迅速、有选择性的将故障元件从电力系统中奶 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/47caaf1e.html" title="markdown基本语法"><img class="post-bg" src="https://www.runoob.com/wp-content/uploads/2019/03/iconfinder_markdown_298823.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="markdown基本语法"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/47caaf1e.html" title="markdown基本语法">markdown基本语法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-08T09:04:34.405Z" title="发表于 2023-05-08 17:04:34">2023-05-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></span></div><div class="content">@TOC
 欢迎使用Markdown编辑器你好！ 这是你第一次使用 Markdown编辑器 所展示的欢迎页。如果你想学习如何使用Markdown编辑器, 可以仔细阅读这篇文章，了解一下Markdown的基本语法知识。
 功能快捷键撤销：Ctrl/Command + Z重做：Ctrl/Command + Y加粗：Ctrl/Command + B斜体：Ctrl/Command + I标题：Ctrl/Command + Shift + H无序列表：Ctrl/Command + Shift + U有序列表：Ctrl/Command + Shift + O检查列表：Ctrl/Command + Shift + C插入代码：Ctrl/Command + Shift + K插入链接：Ctrl/Command + Shift + L插入图片：Ctrl/Command + Shift + G查找：Ctrl/Command + F替换：Ctrl/Command + G
-合理的创建标题，有助于目录的生成直接输入1次#，并按下space后，将生成1级标题。输入2次#，并按下space后，将生成2级标题。以此类推， ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/cafa152b.html" title="新服务器的准备工作"><img class="post_bg" src="/img/cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="新服务器的准备工作"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/cafa152b.html" title="新服务器的准备工作">新服务器的准备工作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-23T03:00:00.000Z" title="发表于 2022-09-23 11:00:00">2022-09-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></span></div><div class="content">当拿到一个新服务器时所需准备工作
-这里选择的服务器是 Ubuntu 20.4 LTS, 区域在广州
+合理的创建标题，有助于目录的生成直接输入1次#，并按下space后，将生成1级标题。输入2次#，并按下space后，将生成2级标题。以此类推， ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/6a63259f.html" title="最强程序员硬核表白"><img class="post-bg" src="https://shiningonly.oss-cn-shenzhen.aliyuncs.com/typora/image-20230419213824494.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="最强程序员硬核表白"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/6a63259f.html" title="最强程序员硬核表白">最强程序员硬核表白</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-28T13:57:43.000Z" title="发表于 2023-04-28 21:57:43">2023-04-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></span></div><div class="content">最强程序员硬核表白超级无敌炫酷之圣诞树先上效果!
 
-一  环境搭建安装python
-首先使用wget命令在Linux下载安装包
-1wget https://repo.anaconda.com/miniconda/Miniconda3-py38_4.9.2-Linux-x86_64.sh
-使用 sh 指令运行安装包文件
-1sh Miniconda3-py38_4.9.2-Linux-x86_64.sh
+注意! 这只是简化版, 到时候可以加名字这些的
+实现过程此作品由python的pygame 和turtle编写而成, 具体代码如下:
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210310410510610710810911011111211311411511611711811912012112212312412512612712812913013113213313413513613713813914014114214314414514614714814915015115215315415515615715815916016116216316416516616716816917017117 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/6569a39e.html" title="在 HTTPS 上运行 FLASK 应用程序"><img class="post-bg" src="https://dormousehole.readthedocs.io/en/latest/_images/flask-logo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在 HTTPS 上运行 FLASK 应用程序"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/6569a39e.html" title="在 HTTPS 上运行 FLASK 应用程序">在 HTTPS 上运行 FLASK 应用程序</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-28T13:56:22.000Z" title="发表于 2023-04-28 21:56:22">2023-04-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></span></div><div class="content">在 HTTPS 上运行 FLASK 应用程序介绍在开发FLASK 应用过程中,通常会运行开发 web 服务器,它提供了一个基本的、但功能齐全的 WSGI HTTP 服务器。但是当部署应用程序到生产环境中,需要考虑的事情之一是,是否应该要求客户端使用加密连接以增加安全性。
+最简单的方法Flask (更具体地说是 Werkzeug)支持使用动态证书(on-the-fly certificates) ,这对于通过HTTPS快速为应用程序提供服务而无需证书时非常有用。
+要在 Flask 上使用临时证书,你需要在虚拟环境中安装一个附加依赖项:
+1$ pip install pyopenssl
 
-然后 回车 yes 回车…一直往下
+然后将ssl_context =’adhoc’添加到 app.run()调用中:
+123456789from flask import Flaskapp = Flask(__name__)@app.route(&quot;/&quot;)def hello():    return &quot;Hello World!&quot;if __name__ == &quot;__main__&quot;:   ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/8418885c.html" title="supervisor使用相关问题"><img class="post-bg" src="https://picx.zhimg.com/v2-2946b7165af790067a56db14fb0e8c41_1440w.jpg?source=172ae18b" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="supervisor使用相关问题"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/8418885c.html" title="supervisor使用相关问题">supervisor使用相关问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-28T13:54:27.000Z" title="发表于 2023-04-28 21:54:27">2023-04-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></span></div><div class="content">supervisor使用相关问题简介Supervisor 是一款 Python 开发的进程管理系统,允许用户监视和控制 Linux 上的进程,能将一个普通命令行进程变为后台守护进程,异常退出时能自动重启
+常见问题使用supervisor添加子配置文件时, 执行以下命令
+1supervisorctl reread
 
-安装完之后，配置并不会直接生效，需要使用 source 使修改之后的 path 生效才能正常使用。
-1source ~/.bashrc
+后提示No config updates to processes
+产生原因可能如下
+配置文件没写对, 导致运行不起来
+centos路径没引用对
 
+解决办法1.正确路径通常我们加载子配置文件是会将配置文件supervisord.conf的最后一部分修改为
+12[include]files=/root/supervisor/conf.d/*.ini
 
- 最后输入 python 即可查看安装版本啦
+这里有几个细节(都是我遇到过的并且踩坑了的)
 
+files后面最好不要加空格, 例如files = /root/supervisor/conf.d/*.ini 这种有可能会找不着路径
+有的如果是*.conf 结尾的可能也用不起, 最好还是改成 ini   结尾的
+最开始这部分是注释着的, 最后取消注释的时候记得把[include] ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/32b1d6a5.html" title="CentOS7防火墙添加端口"><img class="post-bg" src="https://bkimg.cdn.bcebos.com/pic/738b4710b912c8fcc3ce35ad46488545d688d43f8b35?x-bce-process=image/resize,m_lfit,w_536,limit_1" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CentOS7防火墙添加端口"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/32b1d6a5.html" title="CentOS7防火墙添加端口">CentOS7防火墙添加端口</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-28T13:53:00.000Z" title="发表于 2023-04-28 21:53:00">2023-04-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></span></div><div class="content">CentOS7防火墙添加端口CentOS防火墻添加端口比较简单,三步走(皆以root用户执行,或者用sudo命令):
+1.查看开发的端口1firewall-cmd --zone=public --list-ports
 
-安装pycharm
-首先在官网下载pycharm专业版，网址：
-http://www.jetbrains.com/pycharm/download/#section=linux
+2.添加端口12// 将8848端口添加到防火墙firewall-cmd --zone=public --add-port=8848/tcp --permanent   
 
-解压
-1tar -xzvf filename.tar.gz //解压tar.gz
-更改hosts文件（ etc/hosts ），添加一行 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/8e54a7ca.html" title="自制翻译小软件"><img class="post_bg" src="https://s2.loli.net/2022/07/23/3lSRjPtKsId6ZJf.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="自制翻译小软件"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/8e54a7ca.html" title="自制翻译小软件">自制翻译小软件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-23T02:00:01.000Z" title="发表于 2022-09-23 10:00:01">2022-09-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></span></div><div class="content">自制翻译小软件效果预览 !
+更新防火墙1firewall-cmd --reload
 
-软件采用Python, PyQt5等技术, 从底层逻辑到页面设计都是小编亲手设计的, 满满自豪感😊!
-底层逻辑爬虫
-底层的翻译功能是对接到了有道翻译, 采用爬虫的方式, 调取接口,部分代码如下
-
-12345678910111213141516171819202122232425262728293031def translate(word):    with open(&#x27;js_decrypt.js&#x27;, mode=&#x27;r&#x27;, encoding=&#x27;utf-8&#x27;) as f:        js_code = f.read()    compile_result = execjs.compile(js_code)    encode_result = compile_result.call(&#x27;youdao&#x27;, word)  # js加密后的结果    data = &#123;        &#x27;i&#x27;: word,        &#x27;from&#x27;: & ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/ae2194f7.html" title="termux文件访问"><img class="post_bg" src="/img/cover3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="termux文件访问"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/ae2194f7.html" title="termux文件访问">termux文件访问</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-22T23:46:01.000Z" title="发表于 2022-09-23 07:46:01">2022-09-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a></span></div><div class="content">termux文件导入导出手机安装termux后就可以像Linux一样操作啦, 但是遇到两个问题:
-
-怎样让termux访问手机的内部存储
-怎样将termux的根目录文件传递到手机呢
-
-
-answer1想要让termux访问手机存储, 只需要输入这行命令:
-1termux-setup-storage # 申请获取系统文件权限
-
-就可以啦!
-answer2
-termux的根目录是在/data/data/com.termux/files/home/, 默认情况下(手机没root)手机的文件管理器是访问不了的, 会提示权限不够或者是根本看不到, 那我们怎样拿到termux里面的文件呢?
-
-
-其实手机的内部存储入口就在当前文件夹下sotrage/shared里面, 你可以cd进入到这个文件目录, 再ls一下会发现他就是你手机的内部存储
-还有一种方法就是直接输入命令 cd /storage/emulated/0/, 其切换到的目录就是手机内部存储的目录
-
-最后只需要cp或者mv某文件到该目录就可以实现将termux目录中的文件传递到手机存储啦!
-</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/86ffb75.html" title="入党志愿书模板"><img class="post_bg" src="/img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="入党志愿书模板"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/86ffb75.html" title="入党志愿书模板">入党志愿书模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-22T13:21:26.178Z" title="发表于 2022-09-22 21:21:26">2022-09-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></span></div><div class="content">入党志愿书 入党志愿书大体分为这几个方面， 对党的认识， 当下热门时事， 思想上， 学习上， 生活工作上
-党的性质， 宗旨， 纲领, 对党的认识对党的认识:
-1性质: 中国共产党是中国工人阶级的先锋队，同时是中国人民和中华民族的先锋队，是中国特色社会主义事业的领导核心，代表中国先进生产力的发展要求，代表中国先进文化的前进方向，代表中国最广大人民的根本利益。党的最高理想和最终目标是实现共产主义。
+转载自https://blog.csdn.net/weixin_42022380/article/details/120929206
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/86ffb75.html" title="入党志愿书模板"><img class="post-bg" src="/img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="入党志愿书模板"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/86ffb75.html" title="入党志愿书模板">入党志愿书模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-17T13:47:51.310Z" title="发表于 2023-04-17 21:47:51">2023-04-17</time></span></div><div class="content">入党志愿书 入党志愿书大体分为这几个方面, 对党的认识, 当下热门时事, 思想上, 学习上, 生活工作上
+党的性质, 宗旨, 纲领, 对党的认识对党的认识:
+1性质: 中国共产党是中国工人阶级的先锋队,同时是中国人民和中华民族的先锋队,是中国特色社会主义事业的领导核心,代表中国先进生产力的发展要求,代表中国先进文化的前进方向,代表中国最广大人民的根本利益。党的最高理想和最终目标是实现共产主义。
 
 
 1宗旨: 全心全意为人民服务
 
 
-1纲领: 党的纲领，指的是中国共产党为实现自己的奋斗目标而确立的行动方略.
+1纲领: 党的纲领,指的是中国共产党为实现自己的奋斗目标而确立的行动方略.
 
-当代热门事件，习近平总书记在五四上的讲话习近平总书记在庆祝中国共产主义青年团成立100周年大会上的重要讲话
-5月10日，习近平总书记在庆祝中国共产主义青年团成立100周年大会上发表重要讲话。
+当代热门事件,习近平总书记在五四上的讲话习近平总书记在庆祝中国共产主义青年团成立100周年大会上的重要讲话
+5月10日,习近平总书记在庆祝中国共产主义青年团成立100周年大会上发表重要讲话。
 
-在大会上， 习总书记激励广大团员青年在实现中华民族伟大复兴中国梦的新征程上奋勇前进。
+在大会上, 习总书记激励广大团员青年在实现中华民族伟大复兴中国梦的新征程上奋勇前进。
 
-并且强调青年的命运，从来都同时代紧密相连。
+并且强调青年的命运,从来都同时代紧密相连。
 
-坚定不移跟党走，为党和人民奋斗，是共青团的初心使命。
+坚定不移跟党走,为党和人民奋斗,是共青团的初心使命。
 
-大会上，习总书记还给青年团提出了几点希望: 
- 1. 第一，坚持为党育人，始终成为引领中国青年思想进步 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/0.html" title="数码管的共阳和共阴"><img class="post_bg" src="/img/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数码管的共阳和共阴"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/0.html" title="数码管的共阳和共阴">数码管的共阳和共阴</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-21T09:16:03.094Z" title="发表于 2022-09-21 17:16:03">2022-09-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="content">数码管一、共阳极数码管
-公共端是阳极，并且连接电源
+大会上,习总书记还给青年团提出了几点希望:
 
-二、共阴极数码管
-公共端是阴极， 并且接地 
+第一,坚持为党育人,始终成为引领中国青年思想进步的政治学 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/30fd49a4.html" title="控制系统的综合与校正"><img class="post-bg" src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="控制系统的综合与校正"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/30fd49a4.html" title="控制系统的综合与校正">控制系统的综合与校正</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-08T09:39:13.000Z" title="发表于 2023-04-08 17:39:13">2023-04-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="content">控制系统的综合与校正系统基础校正校正的基本概念
+校正就是在系统原有部分, 也称为未校正部分的基础上, 加入一些参数或结构, 可根据需要改变的校正装置.
 
-关于Proteus闪退问题可以参考这篇文章
-</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">shenglinonly</div><div class="author-info__description">shiningonly 个人博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/shenglinonly"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/shenglinonly" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:shenglinonly@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/47caaf1e.html" title="markdown基本语法"><img src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="markdown基本语法"/></a><div class="content"><a class="title" href="/posts/47caaf1e.html" title="markdown基本语法">markdown基本语法</a><time datetime="2022-09-24T10:11:33.549Z" title="发表于 2022-09-24 18:11:33">2022-09-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/cafa152b.html" title="新服务器的准备工作"><img src="/img/cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="新服务器的准备工作"/></a><div class="content"><a class="title" href="/posts/cafa152b.html" title="新服务器的准备工作">新服务器的准备工作</a><time datetime="2022-09-23T03:00:00.000Z" title="发表于 2022-09-23 11:00:00">2022-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/8e54a7ca.html" title="自制翻译小软件"><img src="https://s2.loli.net/2022/07/23/3lSRjPtKsId6ZJf.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="自制翻译小软件"/></a><div class="content"><a class="title" href="/posts/8e54a7ca.html" title="自制翻译小软件">自制翻译小软件</a><time datetime="2022-09-23T02:00:01.000Z" title="发表于 2022-09-23 10:00:01">2022-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/ae2194f7.html" title="termux文件访问"><img src="/img/cover3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="termux文件访问"/></a><div class="content"><a class="title" href="/posts/ae2194f7.html" title="termux文件访问">termux文件访问</a><time datetime="2022-09-22T23:46:01.000Z" title="发表于 2022-09-23 07:46:01">2022-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/86ffb75.html" title="入党志愿书模板"><img src="/img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="入党志愿书模板"/></a><div class="content"><a class="title" href="/posts/86ffb75.html" title="入党志愿书模板">入党志愿书模板</a><time datetime="2022-09-22T13:21:26.178Z" title="发表于 2022-09-22 21:21:26">2022-09-22</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+校正方式
+串联校正
+局部反馈校正
+复合校正: 给定整形滤波后, 送入系统
+
+PID校正比例(P)环节无相移校正
+比例-微分(PD)控制
+PD控制是相角超前控制
+
+
+有效的改善系统的动态性能
+相对稳定性提高了
+系统的快速性得到了提高
+使得系统抗高频干扰能力下降
+
+比例-积分(PI)控制
+PI控制是相角滞后控制
+
+
+增加了系统型别, 有效改善了系统的稳态性能
+它会损失相位裕量, 降低系统的相对稳定性
+
+比例-积分-微分(PID)控制
+PID控制本质上是一种滞后-超前校正
+
+
+在低频段起积分作用, 可以改善系统的稳态性能
+在中 高频段则起微分作用, 使系统的幅值穿越频率Wc增大, 快速得到提高, 系统的相位裕量增大, 相对稳定性提高, 改善了系统的动态性能
+使系统的稳态性能和动态性能都得到了全面提高
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/c1a50aa0.html" title="温湿度检测和液位测量"><img class="post-bg" src="https://shiningonly.oss-cn-shenzhen.aliyuncs.com/typora/image-20230407225313188.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="温湿度检测和液位测量"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/c1a50aa0.html" title="温湿度检测和液位测量">温湿度检测和液位测量</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-08T09:35:18.000Z" title="发表于 2023-04-08 17:35:18">2023-04-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="content">温湿度检测和液位测量
+实现思路:
+DHT11温湿度传感器和超声波传感器测量数据, 通过at89c51单片机数据处理, 最后将数据显示在液晶显示屏1602上
+
+逻辑图
+传感器特点DHT11 温湿度传感器简介
+DHT11是一款有已校准数字信号输出的温湿度传感器。 其精度湿度±5%RH, 温度±2°C,量程湿度595%RH, 温度-20+60°C。 DHT11 数字温湿度传感器 是一款含有已校准数字信号输出的温湿度复合传感器 ,它应用专用的数字模块采集技术和温湿度传感技术,确保产品具有极高的可靠性和卓越的长期稳定性。
+
+Hc_Sr04 超声波传感器简介
+HC-SR04超声波测距模块可提供2cm-400cm的非接触式距离感测功能,测距精度可达高到3mm;模块包括超声波发射器、接收器和控制电路。其基本工作原理采用IO口TRIG触发测距,给至少10us的高电平信号;模块自动发送8个40khz的方波,自动检测是否有信号返回;有信号返回,通过IO口ECHO输出一个高电平,高电平持续的时间就是超声波从发射到返回的时间。
+
+设计原理图
+实物展示
+程序代码1. 液晶显示屏160212345678910111 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">shenglinonly</div><div class="author-info__description">shiningonly 个人博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/shenglinonly"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/shenglinonly" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:shenglinonly@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/7ce14fdc.html" title="三菱plc+ python打造智能温湿度系统"><img src="https://shiningonly.oss-cn-shenzhen.aliyuncs.com/typora/image-20230625185356596.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="三菱plc+ python打造智能温湿度系统"/></a><div class="content"><a class="title" href="/posts/7ce14fdc.html" title="三菱plc+ python打造智能温湿度系统">三菱plc+ python打造智能温湿度系统</a><time datetime="2023-06-25T11:13:25.000Z" title="发表于 2023-06-25 19:13:25">2023-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/deff236f.html" title="继电保护知识点"><img src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="继电保护知识点"/></a><div class="content"><a class="title" href="/posts/deff236f.html" title="继电保护知识点">继电保护知识点</a><time datetime="2023-05-18T12:19:05.000Z" title="发表于 2023-05-18 20:19:05">2023-05-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/47caaf1e.html" title="markdown基本语法"><img src="https://www.runoob.com/wp-content/uploads/2019/03/iconfinder_markdown_298823.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="markdown基本语法"/></a><div class="content"><a class="title" href="/posts/47caaf1e.html" title="markdown基本语法">markdown基本语法</a><time datetime="2023-05-08T09:04:34.405Z" title="发表于 2023-05-08 17:04:34">2023-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6a63259f.html" title="最强程序员硬核表白"><img src="https://shiningonly.oss-cn-shenzhen.aliyuncs.com/typora/image-20230419213824494.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="最强程序员硬核表白"/></a><div class="content"><a class="title" href="/posts/6a63259f.html" title="最强程序员硬核表白">最强程序员硬核表白</a><time datetime="2023-04-28T13:57:43.000Z" title="发表于 2023-04-28 21:57:43">2023-04-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6569a39e.html" title="在 HTTPS 上运行 FLASK 应用程序"><img src="https://dormousehole.readthedocs.io/en/latest/_images/flask-logo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在 HTTPS 上运行 FLASK 应用程序"/></a><div class="content"><a class="title" href="/posts/6569a39e.html" title="在 HTTPS 上运行 FLASK 应用程序">在 HTTPS 上运行 FLASK 应用程序</a><time datetime="2023-04-28T13:56:22.000Z" title="发表于 2023-04-28 21:56:22">2023-04-28</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BB%A3%E7%A0%81/"><span class="card-category-list-name">代码</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">学习</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">1</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/linux/" style="font-size: 1.5em; color: #99a9bf">linux</a> <a href="/tags/python/" style="font-size: 1.1em; color: #999">python</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">九月 2022</span><span class="card-archive-list-count">6</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">6</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">3.9k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-09-30T00:58:24.374Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022-09 - 2022 By shenglinonly</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function subtitleType () {
-  if (true) { 
-    window.typed = new Typed("#subtitle", {
-      strings: ["欢迎来到 shining 的个人博客","两情若是久长时 又岂在朝朝暮暮","好看的皮囊千篇一律 有趣的灵魂万里挑一","做品质男人 钓品质女人"],
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%B8%93%E4%B8%9A/"><span class="card-category-list-name">专业</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BB%A3%E7%A0%81/"><span class="card-category-list-name">代码</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">学习</span><span class="card-category-list-count">6</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E4%BC%A0%E6%84%9F%E5%99%A8/" style="font-size: 1.1em; color: #999">传感器</a> <a href="/tags/https/" style="font-size: 1.1em; color: #999">https</a> <a href="/tags/%E9%AB%98%E6%95%B0/" style="font-size: 1.1em; color: #999">高数</a> <a href="/tags/micropython/" style="font-size: 1.1em; color: #999">micropython</a> <a href="/tags/homeassistant/" style="font-size: 1.1em; color: #999">homeassistant</a> <a href="/tags/%E8%80%83%E7%A0%94/" style="font-size: 1.1em; color: #999">考研</a> <a href="/tags/mqtt/" style="font-size: 1.1em; color: #999">mqtt</a> <a href="/tags/git/" style="font-size: 1.1em; color: #999">git</a> <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/" style="font-size: 1.3em; color: #99a1ac">物联网</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 1.1em; color: #999">课程</a> <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 1.1em; color: #999">单片机</a> <a href="/tags/github/" style="font-size: 1.1em; color: #999">github</a> <a href="/tags/flask/" style="font-size: 1.1em; color: #999">flask</a> <a href="/tags/plc/" style="font-size: 1.1em; color: #999">plc</a> <a href="/tags/%E6%B3%B0%E5%8B%92%E5%85%AC%E5%BC%8F/" style="font-size: 1.1em; color: #999">泰勒公式</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.1em; color: #999">前端</a> <a href="/tags/%E4%B8%93%E4%B8%9A/" style="font-size: 1.1em; color: #999">专业</a> <a href="/tags/%E5%8F%91%E7%94%B5%E5%8E%82/" style="font-size: 1.1em; color: #999">发电厂</a> <a href="/tags/centos/" style="font-size: 1.3em; color: #99a1ac">centos</a> <a href="/tags/linux/" style="font-size: 1.3em; color: #99a1ac">linux</a> <a href="/tags/supervisor/" style="font-size: 1.1em; color: #999">supervisor</a> <a href="/tags/%E7%94%B5%E6%B0%94/" style="font-size: 1.3em; color: #99a1ac">电气</a> <a href="/tags/python/" style="font-size: 1.5em; color: #99a9bf">python</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">五月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">九月 2022</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">20</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">20.7k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-06-28T06:28:40.308Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022-09 - 2023 By shenglinonly</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: (str) => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
       startDelay: 300,
       typeSpeed: 150,
       loop: true,
-      backSpeed: 50
-    })
+      backSpeed: 50,
+    }, null))
+  },
+  run: (subtitleType) => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+</script><script>function subtitleType () {
+  if (true) {
+    typedJSFn.init(["欢迎来到 shining 的个人博客","两情若是久长时 又岂在朝朝暮暮","好看的皮囊千篇一律 有趣的灵魂万里挑一","做品质男人 钓品质女人","我将违背我的本能,忤逆我的天性","出身寒微, 不是耻辱, 能屈能伸, 方位丈夫","爱情东升西落,浪漫至死不渝","忍人之不能忍,方能为人之不能为"])
   } else {
     document.getElementById("subtitle").innerHTML = '欢迎来到 shining 的个人博客'
   }
 }
-
-if (true) {
-  if (typeof Typed === 'function') {
-    subtitleType()
-  } else {
-    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
-  }
-} else {
-  subtitleType()
-}</script></div><script data-pjax src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script src="/js/title.js"></script><div class="aplayer no-destroy" data-id="7496282614" data-server="netease" data-type="playlist"   data-order="list" data-fixed="true" data-preload="auto" data-autoplay="false" data-mutex="true" ></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+typedJSFn.run(subtitleType)</script></div><script data-pjax src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script src="/js/title.js"></script><div class="aplayer no-destroy" data-id="2462290080" data-server="tencent" data-type="playlist"   data-order="list" data-fixed="true" data-preload="auto" data-autoplay="false" data-mutex="true" ></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
 POWERMODE.shake = true;
 POWERMODE.mobile = false;
 document.body.addEventListener('input', POWERMODE);
@@ -267,7 +378,6 @@ document.addEventListener('pjax:send', function () {
   window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
   window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
 
-  typeof preloader === 'object' && preloader.initLoading()
   document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
   
   if (window.aplayers) {
@@ -313,42 +423,16 @@ document.addEventListener('pjax:complete', function () {
 
   // prismjs
   typeof Prism === 'object' && Prism.highlightAll()
-
-  typeof preloader === 'object' && preloader.endLoading()
 })
 
 document.addEventListener('pjax:error', (e) => {
   if (e.request.status === 404) {
     pjax.loadUrl('/404.html')
   }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
-  function butterfly_swiper_injector_config(){
-    var parent_div_git = document.getElementById('recent-posts');
-    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/cafa152b.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/img/cover4.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-23</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/cafa152b.html&quot;);" href="javascript:void(0);" alt="">新服务器的准备工作</a><div class="blog-slider__text">自个点进去看!</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/cafa152b.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/86ffb75.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/img/cover2.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-22</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/86ffb75.html&quot;);" href="javascript:void(0);" alt="">入党志愿书模板</a><div class="blog-slider__text">自个点进去看!</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/86ffb75.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/0.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/img/cover.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-21</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/0.html&quot;);" href="javascript:void(0);" alt="">数码管的共阳和共阴</a><div class="blog-slider__text">自个点进去看!</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/0.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/ae2194f7.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/img/cover3.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-23</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/ae2194f7.html&quot;);" href="javascript:void(0);" alt="">termux文件访问</a><div class="blog-slider__text">自个点进去看!</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/ae2194f7.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/8e54a7ca.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://s2.loli.net/2022/07/23/3lSRjPtKsId6ZJf.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-23</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/8e54a7ca.html&quot;);" href="javascript:void(0);" alt="">自制翻译小软件</a><div class="blog-slider__text">自个点进去看!</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/8e54a7ca.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
-    console.log('已挂载butterfly_swiper')
-    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
-    }
-  var elist = 'undefined'.split(',');
-  var cpage = location.pathname;
-  var epage = '/';
-  var flag = 0;
-
-  for (var i=0;i<elist.length;i++){
-    if (cpage.includes(elist[i])){
-      flag++;
-    }
-  }
-
-  if ((epage ==='all')&&(flag == 0)){
-    butterfly_swiper_injector_config();
-  }
-  else if (epage === cpage){
-    butterfly_swiper_injector_config();
-  }
-  </script><script defer src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/js/swiper.min.js"></script><script defer data-pjax src="https://cdn.cbd.int/hexo-butterfly-swiper/lib/swiper_init.js"></script><script data-pjax>
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
     function butterfly_categories_card_injector_config(){
       var parent_div_git = document.getElementById('recent-posts');
-      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(/img/categoryBar1.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/代码/&quot;);" href="javascript:void(0);">代码</a><span class="categoryBar-list-count">4</span><span class="categoryBar-list-descr">代码</span></li><li class="categoryBar-list-item" style="background:url(/img/categoryBar2.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/学习/&quot;);" href="javascript:void(0);">学习</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">学习</span></li><li class="categoryBar-list-item" style="background:url(/img/categoryBar3.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/生活/&quot;);" href="javascript:void(0);">生活</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">生活</span></li></ul></div></div>';
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(/img/categoryBar1.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/代码/&quot;);" href="javascript:void(0);">代码</a><span class="categoryBar-list-count">12</span><span class="categoryBar-list-descr">代码</span></li><li class="categoryBar-list-item" style="background:url(/img/categoryBar2.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/学习/&quot;);" href="javascript:void(0);">学习</a><span class="categoryBar-list-count">6</span><span class="categoryBar-list-descr">学习</span></li><li class="categoryBar-list-item" style="background:url(/img/categoryBar3.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/专业/&quot;);" href="javascript:void(0);">专业</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">生活</span></li></ul></div></div>';
       console.log('已挂载butterfly_categories_card')
       parent_div_git.insertAdjacentHTML("afterbegin",item_html)
       }
