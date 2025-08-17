@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+
+    
+<script>!function(){var e=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,t=localStorage.getItem("use-color-scheme")||"auto";("dark"===t||e&&"light"!==t)&&document.documentElement.classList.toggle("dark",!0)}()</script>
+    
+
+<meta charset="utf-8" >
+
+<title>温湿度检测和液位测量</title>
+<meta name="keywords" content="温湿度检测和液位测量, kk&#39;shining">
+<meta name="description" content="温湿度检测和液位测量
+实现思路:
+DHT11温湿度传感器和超声波传感器测量数据, 通过at89c51单片机数据处理, 最后将数据显示在液晶显示屏1602上 
+
+逻辑图
+传感器特点DHT11 温湿度传感器简介
+DHT11是一款有已校准数字信号">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="温湿度检测和液位测量">
+<meta property="og:description" content="温湿度检测和液位测量
+实现思路:
+DHT11温湿度传感器和超声波传感器测量数据, 通过at89c51单片机数据处理, 最后将数据显示在液晶显示屏1602上 
+
+逻辑图
+传感器特点DHT11 温湿度传感器简介
+DHT11是一款有已校准数字信号">
+
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="/style/main.css">
+
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body>
+    <div id="app" class="main">
+
+<div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://blog.shiningonly.cn">
+        <img class="avatar" src="/images/avatar.png" alt="logo" width="32px" height="32px">
+      </a>
+      <a href="https://blog.shiningonly.cn">
+        <h1 class="site-title">kk&#39;shining</h1>
+      </a>
+    </div>
+    <div class="right">
+        <i class="icon menu-switch icon-menu-outline" ></i>
+    </div>
+  </div>
+</div>
+
+<div class="menu-container" style="height: 0;opacity: 0;">
+<nav class="menu-list">
+  
+    
+      <a href="/" class="menu purple-link">
+        首页
+      </a>
+    
+  
+    
+      <a href="/tags" class="menu purple-link">
+        标签
+      </a>
+    
+  
+    
+      <a href="/archives" class="menu purple-link">
+        归档
+      </a>
+    
+  
+    
+      <a href="/about" class="menu purple-link">
+        关于
+      </a>
+    
+  
+</nav>
+</div>
+
+
+
+  <div class="content-container">
+    <div class="post-detail">
+      
+      <h2 class="post-title">温湿度检测和液位测量</h2>
+      <div class="post-info post-detail-info">
+        <span><i class="icon icon-calendar-outline"></i> 2024-08-16</span>
+        
+      </div>
+      <div class="post-content-wrapper">
+        <div class="post-content">
+          <h1 id="温湿度检测和液位测量"><a href="#温湿度检测和液位测量" class="headerlink" title="温湿度检测和液位测量"></a>温湿度检测和液位测量</h1><blockquote>
+<p><strong>实现思路:</strong></p>
+<p>DHT11温湿度传感器和超声波传感器测量数据, 通过at89c51单片机数据处理, 最后将数据显示在液晶显示屏1602上 </p>
+</blockquote>
+<h2 id="逻辑图"><a href="#逻辑图" class="headerlink" title="逻辑图"></a>逻辑图</h2><p><a class="simple-lightbox" target="_blank" rel="noopener" href="https://shiningonly.oss-cn-shenzhen.aliyuncs.com/typora/image-20230407225313188.png"><img   src="/images/loading.svg" data-src="https://shiningonly.oss-cn-shenzhen.aliyuncs.com/typora/image-20230407225313188.png"  alt="image-20230407225313188" lazyload></a></p>
+<h2 id="传感器特点"><a href="#传感器特点" class="headerlink" title="传感器特点"></a>传感器特点</h2><h3 id="DHT11-温湿度传感器"><a href="#DHT11-温湿度传感器" class="headerlink" title="DHT11 温湿度传感器"></a>DHT11 温湿度传感器</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><blockquote>
+<p>DHT11是一款有已校准数字信号输出的温湿度传感器。 其精度湿度±5%RH， 温度±2℃，量程湿度5<del>95%RH， 温度-20</del>+60℃。 DHT11 数字温湿度传感器 是一款含有已校准数字信号输出的温湿度复合传感器 ，它应用专用的数字模块采集技术和温湿度传感技术，确保产品具有极高的可靠性和卓越的长期稳定性。</p>
+</blockquote>
+<h3 id="Hc-Sr04-超声波传感器"><a href="#Hc-Sr04-超声波传感器" class="headerlink" title="Hc_Sr04 超声波传感器"></a>Hc_Sr04 超声波传感器</h3><h4 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h4><blockquote>
+<p>HC-SR04超声波测距模块可提供2cm-400cm的非接触式距离感测功能，测距精度可达高到3mm；模块包括超声波发射器、接收器和控制电路。其基本工作原理采用IO口TRIG触发测距，给至少10us的高电平信号；模块自动发送8个40khz的方波，自动检测是否有信号返回；有信号返回，通过IO口ECHO输出一个高电平，高电平持续的时间就是超声波从发射到返回的时间。</p>
+</blockquote>
+<h2 id="设计原理图"><a href="#设计原理图" class="headerlink" title="设计原理图"></a>设计原理图</h2><p><a class="simple-lightbox" target="_blank" rel="noopener" href="https://shiningonly.oss-cn-shenzhen.aliyuncs.com/typora/image-20230407225950760.png"><img   src="/images/loading.svg" data-src="https://shiningonly.oss-cn-shenzhen.aliyuncs.com/typora/image-20230407225950760.png"  alt="image-20230407225950760" lazyload></a></p>
+<h2 id="实物展示"><a href="#实物展示" class="headerlink" title="实物展示"></a>实物展示</h2><p><a class="simple-lightbox" target="_blank" rel="noopener" href="https://shiningonly.oss-cn-shenzhen.aliyuncs.com/typora/image-20230407230014336.png"><img   src="/images/loading.svg" data-src="https://shiningonly.oss-cn-shenzhen.aliyuncs.com/typora/image-20230407230014336.png"  alt="image-20230407230014336" lazyload></a></p>
+<h2 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h2><h3 id="1-液晶显示屏1602"><a href="#1-液晶显示屏1602" class="headerlink" title="1. 液晶显示屏1602"></a>1. 液晶显示屏1602</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;reg51.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;string.h&quot;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stdio.h&quot;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;dht11.h&quot;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;delayms.h&quot;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;CSBofCM.h&quot;</span>  </span></span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uint unsigned int   </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> uchar unsigned char  </span></span><br><span class="line">	  </span><br><span class="line">sbit scr_E = P0^<span class="number">1</span>;  </span><br><span class="line">sbit scr_RW = P0^<span class="number">2</span>;  </span><br><span class="line">sbit src_RS = P0^<span class="number">3</span>;  </span><br><span class="line">	  </span><br><span class="line">uchar index;  </span><br><span class="line">	  </span><br><span class="line"><span class="type">int</span> pre_temp, temp_suf, pre_humi, humi_suf;  </span><br><span class="line">	  </span><br><span class="line">	  </span><br><span class="line"><span class="comment">// 定义温湿度显示数组  </span></span><br><span class="line">uchar temp[<span class="number">14</span>] = <span class="string">&quot;temp: &quot;</span>;  </span><br><span class="line">uchar humi[<span class="number">9</span>] = <span class="string">&quot;humi: &quot;</span>;  </span><br><span class="line">	  </span><br><span class="line">	  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">write_address</span><span class="params">(uchar address)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    src_RS = <span class="number">0</span>;  </span><br><span class="line">    P1 = address;  </span><br><span class="line">    <span class="built_in">delayms</span>(<span class="number">5</span>);  </span><br><span class="line">    scr_E = <span class="number">1</span>;  </span><br><span class="line">    <span class="built_in">delayms</span>(<span class="number">5</span>);  </span><br><span class="line">    scr_E = <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">	  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">write_data</span><span class="params">(uchar data_)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    src_RS = <span class="number">1</span>;  </span><br><span class="line">    P1 = data_;  </span><br><span class="line">    <span class="built_in">delayms</span>(<span class="number">5</span>);  </span><br><span class="line">    scr_E = <span class="number">1</span>;  </span><br><span class="line">    <span class="built_in">delayms</span>(<span class="number">5</span>);  </span><br><span class="line">    scr_E = <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">	  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">lcd_init</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    scr_E = <span class="number">0</span>;  </span><br><span class="line">    scr_RW = <span class="number">0</span>;  </span><br><span class="line">    <span class="built_in">write_address</span>(<span class="number">0x38</span>);  </span><br><span class="line">    <span class="built_in">write_address</span>(<span class="number">0x0c</span>);  </span><br><span class="line">    <span class="built_in">delayms</span>(<span class="number">50</span>);  </span><br><span class="line">    <span class="built_in">write_address</span>(<span class="number">0x06</span>);  </span><br><span class="line">    <span class="built_in">delayms</span>(<span class="number">50</span>);  </span><br><span class="line">    <span class="built_in">write_address</span>(<span class="number">0x01</span>);  </span><br><span class="line">    <span class="built_in">delayms</span>(<span class="number">50</span>);  </span><br><span class="line">&#125;  </span><br><span class="line">	  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">display</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">	</span>&#123;  </span><br><span class="line">    pre_temp = high_temp / <span class="number">10</span>;  </span><br><span class="line">    temp_suf = high_temp % <span class="number">10</span>;  </span><br><span class="line">    temp[<span class="number">6</span>] = <span class="string">&#x27;0&#x27;</span> + pre_temp;  </span><br><span class="line">    temp[<span class="number">7</span>] = <span class="string">&#x27;0&#x27;</span> + temp_suf;  </span><br><span class="line">    temp[<span class="number">8</span>] = <span class="string">&#x27;C&#x27;</span>;  </span><br><span class="line">    temp[<span class="number">9</span>] = <span class="string">&#x27; &#x27;</span>;  </span><br><span class="line">    temp[<span class="number">9</span>] = <span class="string">&#x27;j&#x27;</span>;  </span><br><span class="line">    temp[<span class="number">10</span>] = <span class="string">&#x27;u&#x27;</span>;  </span><br><span class="line">    temp[<span class="number">11</span>] = <span class="string">&#x27;0&#x27;</span> + f1;  </span><br><span class="line">    temp[<span class="number">12</span>] = <span class="string">&#x27;0&#x27;</span> + f2;  </span><br><span class="line">    temp[<span class="number">13</span>] = <span class="string">&#x27;0&#x27;</span> + f3;  </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在第一行写入温度  </span></span><br><span class="line">    <span class="built_in">write_address</span>(<span class="number">0x80</span>);      </span><br><span class="line">    <span class="keyword">for</span>(index = <span class="number">0</span>;index &lt; <span class="number">14</span>;index++)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="built_in">write_data</span>(temp[index]);  </span><br><span class="line">        <span class="built_in">delayms</span>(<span class="number">5</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    pre_humi = high_humi / <span class="number">10</span>;  </span><br><span class="line">    humi_suf = high_humi % <span class="number">10</span>;  </span><br><span class="line">    humi[<span class="number">6</span>] = <span class="string">&#x27;0&#x27;</span> + pre_humi;  </span><br><span class="line">    humi[<span class="number">7</span>] = <span class="string">&#x27;0&#x27;</span> + humi_suf;  </span><br><span class="line">    humi[<span class="number">8</span>] = <span class="string">&#x27;h&#x27;</span>;  </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在第二行写入湿度  </span></span><br><span class="line">    <span class="built_in">write_address</span>(<span class="number">0x80</span><span class="number">+0x40</span>);  </span><br><span class="line">    <span class="keyword">for</span>(index = <span class="number">0</span>;index &lt; <span class="number">9</span>;index++)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="built_in">write_data</span>(humi[index]);  </span><br><span class="line">        <span class="built_in">delayms</span>(<span class="number">5</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-超声波传感器Hc-Sr04"><a href="#2-超声波传感器Hc-Sr04" class="headerlink" title="2. 超声波传感器Hc_Sr04"></a>2. 超声波传感器Hc_Sr04</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;reg51.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;intrins.h&quot;</span>  </span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">int</span> uint;  </span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> uchar;  </span><br><span class="line">   </span><br><span class="line">sbit Echo=P0^<span class="number">6</span>; <span class="comment">//接受端  </span></span><br><span class="line">sbit Trig=P0^<span class="number">7</span>; <span class="comment">//控制端  </span></span><br><span class="line">uchar flag; <span class="comment">//中断溢出标志  </span></span><br><span class="line">	  </span><br><span class="line">	  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CSB_Time0</span><span class="params">()</span> interrupt 1 <span class="comment">//T0中断用来计数器溢出,超过测距范围  </span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    flag=<span class="number">1</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Delay20us</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> i;  </span><br><span class="line">    _nop_();  </span><br><span class="line">    i = <span class="number">7</span>;  </span><br><span class="line">    <span class="keyword">while</span> (--i);  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CSB_Rstart</span><span class="params">()</span> <span class="comment">//启动模块  </span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    Trig = <span class="number">1</span>;  </span><br><span class="line">    <span class="built_in">Delay20us</span>();  </span><br><span class="line">    Trig = <span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">return</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CSB_Init</span><span class="params">()</span>  <span class="comment">// 初始化  </span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    TMOD = <span class="number">0x01</span>;  </span><br><span class="line">    TH0 = <span class="number">0</span>;  </span><br><span class="line">    TL0 = <span class="number">0</span>;  </span><br><span class="line">    EA = <span class="number">1</span>;            </span><br><span class="line">    ET0 = <span class="number">1</span>;  </span><br><span class="line">&#125;   </span><br><span class="line">	  </span><br><span class="line">uchar f1, f2, f3;  </span><br><span class="line">uint time;  </span><br><span class="line"><span class="type">float</span> distance;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CSB_GetOnce</span><span class="params">()</span> <span class="comment">//得到一次超声波测距模块的距离  </span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="built_in">CSB_Rstart</span>();  </span><br><span class="line">    <span class="keyword">while</span>(!Echo); <span class="comment">//当Echo为零时等待  </span></span><br><span class="line">    TR0 = <span class="number">1</span>; <span class="comment">//开启计数  </span></span><br><span class="line">    <span class="keyword">while</span>(Echo); <span class="comment">//当Echo为1计数并等待  </span></span><br><span class="line">    TR0 = <span class="number">0</span>; <span class="comment">//关闭计数  </span></span><br><span class="line">    time = TH0*<span class="number">256</span>+TL0; <span class="comment">//得到总时间，单位us  </span></span><br><span class="line">    distance = (<span class="type">float</span>)(time*<span class="number">0.017</span>);  </span><br><span class="line">    TH0 = <span class="number">0</span>;  </span><br><span class="line">    TL0 = <span class="number">0</span>; <span class="comment">//清空定时器  </span></span><br><span class="line">    <span class="keyword">if</span>((distance &gt;=<span class="number">300</span>)||flag==<span class="number">1</span>) <span class="comment">//超出测量范围显示 &quot; X &quot;  </span></span><br><span class="line">    &#123;      </span><br><span class="line">        flag=<span class="number">0</span>; <span class="comment">//清空中断溢出标志  </span></span><br><span class="line">        f1 = <span class="string">&#x27;X&#x27;</span>;  </span><br><span class="line">        f2 = <span class="string">&#x27; &#x27;</span>;  </span><br><span class="line">        f3 = <span class="string">&#x27; &#x27;</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">else</span>  </span><br><span class="line">    &#123;  </span><br><span class="line">        f1 = (uint)distance/<span class="number">100</span>; <span class="comment">//百位  </span></span><br><span class="line">        f2 = (uint)distance/<span class="number">10</span>%<span class="number">10</span>; <span class="comment">//十位  </span></span><br><span class="line">        f3 = (uint)distance%<span class="number">10</span>; <span class="comment">//个位  </span></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-温度传感器-DHT11"><a href="#3-温度传感器-DHT11" class="headerlink" title="3. 温度传感器 DHT11"></a>3. 温度传感器 DHT11</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;reg51.h&quot;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;intrins.h&quot;</span>  </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> uchar;  </span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">int</span> uint;  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义信号端口  </span></span><br><span class="line">sbit sign = P0^<span class="number">0</span>;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">delay_us</span><span class="params">(<span class="type">char</span> n)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">while</span>(--n);  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">delay_ms</span><span class="params">(<span class="type">int</span> z)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    uchar x, y;  </span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(z&gt;=<span class="number">0</span>)  </span><br><span class="line">    &#123;  </span><br><span class="line">        _nop_();  <span class="comment">//产生一条NOP指令 (起延时作用)  </span></span><br><span class="line">        x = <span class="number">2</span>;  </span><br><span class="line">        y = <span class="number">199</span>;  </span><br><span class="line">        <span class="keyword">do</span>  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="keyword">while</span> (--y);  </span><br><span class="line">        &#125; <span class="keyword">while</span> (--x);  </span><br><span class="line">        z--;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">start</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    sign = <span class="number">1</span>;  </span><br><span class="line">    <span class="built_in">delay_us</span>(<span class="number">2</span>);  </span><br><span class="line">    sign = <span class="number">0</span>;  </span><br><span class="line">    <span class="built_in">delay_ms</span>(<span class="number">20</span>);   </span><br><span class="line">    sign = <span class="number">1</span>;  </span><br><span class="line">    <span class="built_in">delay_us</span>(<span class="number">30</span>);  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="function">uchar <span class="title">rec_one_byte</span><span class="params">()</span>      <span class="comment">//接收一个字节数据  </span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    uchar i,dat = <span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; <span class="number">8</span>;i++)      </span><br><span class="line">    &#123;            </span><br><span class="line">        <span class="keyword">while</span>(!sign);    </span><br><span class="line"></span><br><span class="line">        <span class="built_in">delay_us</span>(<span class="number">8</span>);  </span><br><span class="line">        dat &lt;&lt;= <span class="number">1</span>; <span class="comment">// 移位        </span></span><br><span class="line">        <span class="keyword">if</span>(sign == <span class="number">1</span>)      </span><br><span class="line">            dat += <span class="number">1</span>;  </span><br><span class="line">        <span class="keyword">while</span>(sign);    </span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="keyword">return</span> dat;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">uchar high_temp, low_temp, high_humi, low_humi, correct;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">receive_all_data</span><span class="params">()</span>      <span class="comment">//接收40位的数据  </span></span></span><br><span class="line"><span class="function"></span>&#123;    </span><br><span class="line">    <span class="built_in">start</span>();  </span><br><span class="line">    <span class="keyword">if</span>(sign == <span class="number">0</span>)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="keyword">while</span>(sign == <span class="number">0</span>);     </span><br><span class="line">        <span class="built_in">delay_us</span>(<span class="number">40</span>);   </span><br><span class="line">        high_humi = <span class="built_in">rec_one_byte</span>();     </span><br><span class="line">        low_humi = <span class="built_in">rec_one_byte</span>();    </span><br><span class="line">        high_temp = <span class="built_in">rec_one_byte</span>();   </span><br><span class="line">        low_temp = <span class="built_in">rec_one_byte</span>();    </span><br><span class="line">        correct = <span class="built_in">rec_one_byte</span>();  </span><br><span class="line"></span><br><span class="line">        <span class="built_in">delay_us</span>(<span class="number">25</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-主函数"><a href="#4-主函数" class="headerlink" title="4. 主函数"></a>4. 主函数</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;reg51.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;1602.h&quot;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;dht11.h&quot;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;CSBofCM.h&quot;</span>  </span></span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="built_in">lcd_init</span>();  </span><br><span class="line">    <span class="built_in">CSB_Init</span>();  </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="built_in">receive_all_data</span>();  </span><br><span class="line">        <span class="built_in">CSB_GetOnce</span>();  </span><br><span class="line">        <span class="built_in">display</span>();  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+        </div>
+          
+        <div class="top-div">
+          <ol class="top-box"><li class="top-box-item top-box-level-1"><a class="top-box-link" href="#%E6%B8%A9%E6%B9%BF%E5%BA%A6%E6%A3%80%E6%B5%8B%E5%92%8C%E6%B6%B2%E4%BD%8D%E6%B5%8B%E9%87%8F"><span class="top-box-text">温湿度检测和液位测量</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E9%80%BB%E8%BE%91%E5%9B%BE"><span class="top-box-text">逻辑图</span></a></li><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E4%BC%A0%E6%84%9F%E5%99%A8%E7%89%B9%E7%82%B9"><span class="top-box-text">传感器特点</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#DHT11-%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8"><span class="top-box-text">DHT11 温湿度传感器</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#Hc-Sr04-%E8%B6%85%E5%A3%B0%E6%B3%A2%E4%BC%A0%E6%84%9F%E5%99%A8"><span class="top-box-text">Hc_Sr04 超声波传感器</span></a></li></ol></li><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86%E5%9B%BE"><span class="top-box-text">设计原理图</span></a></li><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E5%AE%9E%E7%89%A9%E5%B1%95%E7%A4%BA"><span class="top-box-text">实物展示</span></a></li><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81"><span class="top-box-text">程序代码</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#1-%E6%B6%B2%E6%99%B6%E6%98%BE%E7%A4%BA%E5%B1%8F1602"><span class="top-box-text">1. 液晶显示屏1602</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#2-%E8%B6%85%E5%A3%B0%E6%B3%A2%E4%BC%A0%E6%84%9F%E5%99%A8Hc-Sr04"><span class="top-box-text">2. 超声波传感器Hc_Sr04</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#3-%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8-DHT11"><span class="top-box-text">3. 温度传感器 DHT11</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#4-%E4%B8%BB%E5%87%BD%E6%95%B0"><span class="top-box-text">4. 主函数</span></a></li></ol></li></ol></li></ol>
+        </div>
+          
+      </div>
+    </div>
+
+    
+      <div class="next-post">
+        <a class="purple-link" href="/2024/08/16/dian-wang/">
+          <h3 class="post-title">
+            
+            下一篇：电网
+          </h3>
+        </a>
+      </div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+<footer>
+<div class="site-footer">
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  
+
+  
+
+  
+    <div>
+      <a href="https://beian.miit.gov.cn" target="_blank">鄂ICP备2023028588号-4</a>
+    </div>
+  
+
+  
+    <div>
+      <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">本站由 <img src="/images/upyun_logo.png" alt="又拍云" style="height:2em;vertical-align:-0.65em;"> 提供CDN加速/云存储服务</a>
+    </div>
+  
+
+</div>
+</footer>
+
+
+      </div>
+    </div>
+    
+<script id="hexo-configurations"> window.theme_config = {"image":{"lazyload_enable":true,"lazyload_placeholder":null,"photo_zoom":false},"search":{"enable":true,"type":"json","placeholder":"输入关键词搜索...","algolia":{"appID":"","apiKey":"","indexName":""}},"language":"zh-CN"}; window.is_post = true; </script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+

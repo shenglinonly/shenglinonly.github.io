@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+
+    
+<script>!function(){var e=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,t=localStorage.getItem("use-color-scheme")||"auto";("dark"===t||e&&"light"!==t)&&document.documentElement.classList.toggle("dark",!0)}()</script>
+    
+
+<meta charset="utf-8" >
+
+<title>micro python发送 MQTT 心跳包</title>
+<meta name="keywords" content="micro python发送 MQTT 心跳包, kk&#39;shining">
+<meta name="description" content="micro python发送 MQTT 心跳包为什么要发心跳包?keep alive机制在建立连接的时候，我们可以传递一个 Keep Alive 参数，它的单位为秒，MQTT 协议中规定：在 1.5*Keep Alive 的时间间隔内，如果">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="micro python发送 MQTT 心跳包">
+<meta property="og:description" content="micro python发送 MQTT 心跳包为什么要发心跳包?keep alive机制在建立连接的时候，我们可以传递一个 Keep Alive 参数，它的单位为秒，MQTT 协议中规定：在 1.5*Keep Alive 的时间间隔内，如果">
+
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="/style/main.css">
+
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body>
+    <div id="app" class="main">
+
+<div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://blog.shiningonly.cn">
+        <img class="avatar" src="/images/avatar.png" alt="logo" width="32px" height="32px">
+      </a>
+      <a href="https://blog.shiningonly.cn">
+        <h1 class="site-title">kk&#39;shining</h1>
+      </a>
+    </div>
+    <div class="right">
+        <i class="icon menu-switch icon-menu-outline" ></i>
+    </div>
+  </div>
+</div>
+
+<div class="menu-container" style="height: 0;opacity: 0;">
+<nav class="menu-list">
+  
+    
+      <a href="/" class="menu purple-link">
+        首页
+      </a>
+    
+  
+    
+      <a href="/tags" class="menu purple-link">
+        标签
+      </a>
+    
+  
+    
+      <a href="/archives" class="menu purple-link">
+        归档
+      </a>
+    
+  
+    
+      <a href="/about" class="menu purple-link">
+        关于
+      </a>
+    
+  
+</nav>
+</div>
+
+
+
+  <div class="content-container">
+    <div class="post-detail">
+      
+      <h2 class="post-title">micro python发送 MQTT 心跳包</h2>
+      <div class="post-info post-detail-info">
+        <span><i class="icon icon-calendar-outline"></i> 2025-06-02</span>
+        
+      </div>
+      <div class="post-content-wrapper">
+        <div class="post-content">
+          <h1 id="micro-python发送-MQTT-心跳包"><a href="#micro-python发送-MQTT-心跳包" class="headerlink" title="micro python发送 MQTT 心跳包"></a>micro python发送 MQTT 心跳包</h1><h2 id="为什么要发心跳包"><a href="#为什么要发心跳包" class="headerlink" title="为什么要发心跳包?"></a>为什么要发心跳包?</h2><h3 id="keep-alive机制"><a href="#keep-alive机制" class="headerlink" title="keep alive机制"></a>keep alive机制</h3><p>在建立连接的时候，我们可以传递一个 Keep Alive 参数，它的单位为秒，MQTT 协议中规定：<strong>在 1.5*Keep Alive 的时间间隔内，如果 Broker 没有收到来自 Client 的任何数据包，那么 Broker 认为它和 Client 之间的连接已经断开；同样地, 如果 Client 没有收到来自 Broker 的任何数据包，那么 Client 认为它和 Broker 之间的连接已经断开。</strong></p>
+<ul>
+<li>Keep Alive 的最大值为 18 小时 12 分 15 秒；</li>
+<li>Keep Alive 值如果设为 0 的话，代表不使用 Keep Alive 机制。</li>
+</ul>
+<p><strong>解决方法: 客户端每隔keep alive时间, 就向服务端发送心跳包, 相当于告诉服务端我还活着</strong></p>
+<h2 id="怎样发送心跳包"><a href="#怎样发送心跳包" class="headerlink" title="怎样发送心跳包"></a>怎样发送心跳包</h2><blockquote>
+<p>基于micro python语言的umqtt库, 在库中发现一个ping()函数, 该函数就是发送心跳包的函数</p>
+</blockquote>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> network</span><br><span class="line"><span class="keyword">from</span> umqttsimple <span class="keyword">import</span> MQTTClient</span><br><span class="line"></span><br><span class="line">t = <span class="number">0</span></span><br><span class="line">keepalive = <span class="number">60</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">do_connect</span>():</span><br><span class="line">    wlan = network.WLAN(network.STA_IF)</span><br><span class="line">    wlan.active(<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> wlan.isconnected():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;connecting to network...&#x27;</span>)</span><br><span class="line">        wlan.connect(<span class="string">&#x27;ID&#x27;</span>, <span class="string">&#x27;password&#x27;</span>)</span><br><span class="line">        i = <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> wlan.isconnected():</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;正在链接...&#123;&#125;&quot;</span>.<span class="built_in">format</span>(i))</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;network config:&#x27;</span>, wlan.ifconfig())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sub_cb</span>(<span class="params">topic, msg</span>):</span><br><span class="line">    <span class="built_in">print</span>(topic, msg)</span><br><span class="line"></span><br><span class="line">do_connect()</span><br><span class="line">c = MQTTClient(<span class="string">&quot;umqtt_client&quot;</span>, <span class="string">&quot;address&quot;</span>, keepalive=keepalive)</span><br><span class="line">c.set_callback(sub_cb)</span><br><span class="line">c.connect()</span><br><span class="line">c.subscribe(<span class="string">b&quot;test&quot;</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    gloabl t</span><br><span class="line">    t = t + <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">    c.check_msg()</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">if</span> t == keepalive:</span><br><span class="line">        c.ping()</span><br><span class="line">        t = <span class="number">0</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;发送心跳包&#x27;</span>)</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<p><strong>这样客户端就能一直保持连接状态啦</strong></p>
+
+        </div>
+          
+        <div class="top-div">
+          <ol class="top-box"><li class="top-box-item top-box-level-1"><a class="top-box-link" href="#micro-python%E5%8F%91%E9%80%81-MQTT-%E5%BF%83%E8%B7%B3%E5%8C%85"><span class="top-box-text">micro python发送 MQTT 心跳包</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%8F%91%E5%BF%83%E8%B7%B3%E5%8C%85"><span class="top-box-text">为什么要发心跳包?</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#keep-alive%E6%9C%BA%E5%88%B6"><span class="top-box-text">keep alive机制</span></a></li></ol></li><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E6%80%8E%E6%A0%B7%E5%8F%91%E9%80%81%E5%BF%83%E8%B7%B3%E5%8C%85"><span class="top-box-text">怎样发送心跳包</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="top-box-text">代码示例</span></a></li></ol></li></ol></li></ol>
+        </div>
+          
+      </div>
+    </div>
+
+    
+      <div class="next-post">
+        <a class="purple-link" href="/2025/04/17/chrome-dai-li-cha-jian/">
+          <h3 class="post-title">
+            
+            下一篇：chrome 代理插件
+          </h3>
+        </a>
+      </div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+<footer>
+<div class="site-footer">
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  
+
+  
+
+  
+    <div>
+      <a href="https://beian.miit.gov.cn" target="_blank">鄂ICP备2023028588号-4</a>
+    </div>
+  
+
+  
+    <div>
+      <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">本站由 <img src="/images/upyun_logo.png" alt="又拍云" style="height:2em;vertical-align:-0.65em;"> 提供CDN加速/云存储服务</a>
+    </div>
+  
+
+</div>
+</footer>
+
+
+      </div>
+    </div>
+    
+<script id="hexo-configurations"> window.theme_config = {"image":{"lazyload_enable":true,"lazyload_placeholder":null,"photo_zoom":false},"search":{"enable":true,"type":"json","placeholder":"输入关键词搜索...","algolia":{"appID":"","apiKey":"","indexName":""}},"language":"zh-CN"}; window.is_post = true; </script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+

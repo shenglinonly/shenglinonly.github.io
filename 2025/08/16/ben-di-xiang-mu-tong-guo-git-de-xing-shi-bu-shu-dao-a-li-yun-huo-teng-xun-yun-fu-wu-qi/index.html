@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+
+    
+<script>!function(){var e=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,t=localStorage.getItem("use-color-scheme")||"auto";("dark"===t||e&&"light"!==t)&&document.documentElement.classList.toggle("dark",!0)}()</script>
+    
+
+<meta charset="utf-8" >
+
+<title>本地项目通过git的形式部署到阿里云或腾讯云服务器</title>
+<meta name="keywords" content="本地项目通过git的形式部署到阿里云或腾讯云服务器, kk&#39;shining">
+<meta name="description" content="本地项目通过git的形式部署到阿里云或腾讯云服务器应用前景: 之前通过将本地项目部署到GitHub, 然后利用GitHub Action 部署网页到 GitHub page, 使用起来确实很方便, 但是由于GitHub Page 的访问速度">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="本地项目通过git的形式部署到阿里云或腾讯云服务器">
+<meta property="og:description" content="本地项目通过git的形式部署到阿里云或腾讯云服务器应用前景: 之前通过将本地项目部署到GitHub, 然后利用GitHub Action 部署网页到 GitHub page, 使用起来确实很方便, 但是由于GitHub Page 的访问速度">
+
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="/style/main.css">
+
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body>
+    <div id="app" class="main">
+
+<div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://blog.shiningonly.cn">
+        <img class="avatar" src="/images/avatar.png" alt="logo" width="32px" height="32px">
+      </a>
+      <a href="https://blog.shiningonly.cn">
+        <h1 class="site-title">kk&#39;shining</h1>
+      </a>
+    </div>
+    <div class="right">
+        <i class="icon menu-switch icon-menu-outline" ></i>
+    </div>
+  </div>
+</div>
+
+<div class="menu-container" style="height: 0;opacity: 0;">
+<nav class="menu-list">
+  
+    
+      <a href="/" class="menu purple-link">
+        首页
+      </a>
+    
+  
+    
+      <a href="/tags" class="menu purple-link">
+        标签
+      </a>
+    
+  
+    
+      <a href="/archives" class="menu purple-link">
+        归档
+      </a>
+    
+  
+    
+      <a href="/about" class="menu purple-link">
+        关于
+      </a>
+    
+  
+</nav>
+</div>
+
+
+
+  <div class="content-container">
+    <div class="post-detail">
+      
+      <h2 class="post-title">本地项目通过git的形式部署到阿里云或腾讯云服务器</h2>
+      <div class="post-info post-detail-info">
+        <span><i class="icon icon-calendar-outline"></i> 2025-08-16</span>
+        
+      </div>
+      <div class="post-content-wrapper">
+        <div class="post-content">
+          <h1 id="本地项目通过git的形式部署到阿里云或腾讯云服务器"><a href="#本地项目通过git的形式部署到阿里云或腾讯云服务器" class="headerlink" title="本地项目通过git的形式部署到阿里云或腾讯云服务器"></a>本地项目通过git的形式部署到阿里云或腾讯云服务器</h1><p><strong>应用前景:</strong> 之前通过将本地项目部署到GitHub, 然后利用GitHub Action 部署网页到 GitHub page, 使用起来确实很方便, 但是由于GitHub Page 的访问速度很慢, 自己手里又有一台国内服务器, 所以就想着能否像git一样将本地项目通过git的形式一键部署到云服务器上</p>
+<p><strong>问题成立, 实践开始</strong></p>
+<h3 id="部署环境与准备"><a href="#部署环境与准备" class="headerlink" title="部署环境与准备"></a>部署环境与准备</h3><p><strong>1.环境</strong><br>本地 Windows10 操作系统<br>腾讯云 Cenots7.9 服务器</p>
+<p><strong>2.准备</strong><br>Hexo 本地博客<br>mobaxterm 链接到你的服务器</p>
+<h3 id="云服务器配置-Git"><a href="#云服务器配置-Git" class="headerlink" title="云服务器配置 Git"></a>云服务器配置 Git</h3><p>1.安装依赖库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</span><br></pre></td></tr></table></figure>
+
+<p>2.安装编译工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc perl-ExtUtils-MakeMaker package</span><br></pre></td></tr></table></figure>
+
+<p>3.查看 git 的版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git version</span><br></pre></td></tr></table></figure>
+
+<p>4.删除 git</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove git -y</span><br></pre></td></tr></table></figure>
+
+<p>5.下载解压最新版</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/src <span class="comment">#下载的目录</span></span><br><span class="line">wget https://www.kernel.org/pub/software/scm/git/git-2.28.0.tar.gz <span class="comment">#下载最新版</span></span><br><span class="line">tar -zxvf git-2.28.0.tar.gz <span class="comment">#解压到当前文件夹</span></span><br></pre></td></tr></table></figure>
+
+<p>6.编辑并安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> git-2.28.0    <span class="comment">#进入文件夹</span></span><br><span class="line">make prefix=/usr/local/git all    <span class="comment">#编译源码</span></span><br><span class="line">make prefix=/usr/local/git install    <span class="comment">#安装路径</span></span><br></pre></td></tr></table></figure>
+
+<p>7.配置 git 的环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=$PATH:/usr/local/git/bin&#x27;</span> &gt;&gt; /etc/bashrc</span><br></pre></td></tr></table></figure>
+
+<p>8.刷新环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/bashrc</span><br></pre></td></tr></table></figure>
+
+<p>9.查看版本号</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<p>10.创建 git 用户并且修改权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">adduser nihao</span><br><span class="line">passwd nihao</span><br><span class="line"><span class="built_in">chmod</span> 740 /etc/sudoers </span><br><span class="line">vim /etc/sudoers root</span><br><span class="line"></span><br><span class="line">在这里加入：</span><br><span class="line">root    ALL=(ALL)       ALL</span><br><span class="line">nihao     ALL=(ALL)       ALL</span><br></pre></td></tr></table></figure>
+
+<p>11.本地 windows10 使用 Gitbash 创建密钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+
+<p>12.将本地创建 id_rsa.pub 中文件复制</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su qiqi</span><br><span class="line"><span class="built_in">mkdir</span> ~/.ssh</span><br><span class="line">vim ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
+<p>13.本地测试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -v nihao@服务器ip</span><br></pre></td></tr></table></figure>
+
+<p><strong>出现 Welcome to Alibaba Cloud Elastic Compute Service !则代表部署成功</strong></p>
+<h3 id="云服务器网站配置"><a href="#云服务器网站配置" class="headerlink" title="云服务器网站配置"></a>云服务器网站配置</h3><blockquote>
+<p>这里会创建两个文件夹, 一个是网站的目录, 一个是git的仓库地址, 其中网站的目录需要自己创建, git的仓库地址就用的用户名的地址, 实现原理就是本地文件上传到git仓库地址, 然后服务器自动拉取更新文件到网站目录</p>
+</blockquote>
+<p>1.创建网站目录并且设置权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su root</span><br><span class="line"><span class="built_in">mkdir</span> /home/hexo <span class="comment"># 网站目录</span></span><br><span class="line"><span class="built_in">chown</span> nihao:nihao -R /home/hexo <span class="comment"># 把这个文件夹权限给nihao用户</span></span><br></pre></td></tr></table></figure>
+
+<p>2.建立 git 仓库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">su root</span><br><span class="line"><span class="built_in">cd</span> /home/nihao <span class="comment"># 用户目录,也就是拿来用作git仓库</span></span><br><span class="line">git init --bare blog.git <span class="comment">#服务端初始化一个git仓库</span></span><br><span class="line"><span class="built_in">chown</span> nihao:nihao -R blog.git <span class="comment">#把该目录权限给nihao用户</span></span><br></pre></td></tr></table></figure>
+
+<p>3.同步网站根目录(自动拉取更新文件到网站目录)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim blog.git/hooks/post-receive</span><br><span class="line"></span><br><span class="line"><span class="comment">#添加以下内容</span></span><br><span class="line"><span class="comment">#!/bin/sh</span></span><br><span class="line">git --work-tree=/home/hexo --git-dir=/home/nihao/blog.git checkout -f</span><br></pre></td></tr></table></figure>
+
+<p>4.修改权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x /home/qiqi/blog.git/hooks/post-receive</span><br></pre></td></tr></table></figure>
+
+<p>5.然后克隆这个空仓库到本地</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> nihao@47.110.120.130:/home/nihao/blog.git <span class="comment">#用户名@服务器Ip:git仓库位置</span></span><br></pre></td></tr></table></figure>
+
+<p>6.将克隆下来文件夹中的.git文件夹复制到本地项目的根目录</p>
+<p>7.接着就可以在本地项目的根目录实行git三件套了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m<span class="string">&quot;first commit&quot;</span></span><br><span class="line">git push</span><br><span class="line"><span class="comment"># 输入密码</span></span><br></pre></td></tr></table></figure>
+
+<p>本地文件会通过git上传到服务器git仓库, 然后服务器会自动拉取git仓库的更新文件到网站目录</p>
+<p><strong>至此就可以实现本地通过git一键部署网站文件到云服务器了</strong></p>
+<h3 id="常见报错"><a href="#常见报错" class="headerlink" title="常见报错"></a>常见报错</h3><p>1.git-upload-pack: 未找到命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BASH</span><br><span class="line">bash: git-upload-pack: <span class="built_in">command</span> not found</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br><span class="line">解决方法</span><br><span class="line">BASH</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s  /usr/local/git/bin/git-upload-pack  /usr/bin/git-upload-pack</span><br></pre></td></tr></table></figure>
+
+<p>2.git-receive-pack: 未找到命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BASH</span><br><span class="line">bash: git-receive-pack: <span class="built_in">command</span> not found</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br><span class="line">解决方法</span><br><span class="line">BASH</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s /usr/local/git/bin/git-receive-pack  /usr/bin/git-receive-pack</span><br></pre></td></tr></table></figure>
+
+<p>3.无法远程连接获取</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BASH</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br><span class="line">解决方法</span><br><span class="line">BASH</span><br><span class="line">重试或者 删掉本地ssh公钥重新上传至服务器</span><br></pre></td></tr></table></figure>
+
+<p>4.key 出错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BASH</span><br><span class="line">Host key verification failed.</span><br><span class="line">解决方法</span><br><span class="line">BASH</span><br><span class="line">ssh-keygen -R 你要访问的IP地址</span><br></pre></td></tr></table></figure>
+
+<p>文章转载自<a target="_blank" rel="noopener" href="https://blog.anheyu.com/posts/ce6a.html">https://blog.anheyu.com/posts/ce6a.html</a>, 若有侵权, 请联系删除</p>
+
+        </div>
+          
+        <div class="top-div">
+          <ol class="top-box"><li class="top-box-item top-box-level-1"><a class="top-box-link" href="#%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E9%80%9A%E8%BF%87git%E7%9A%84%E5%BD%A2%E5%BC%8F%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E6%88%96%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="top-box-text">本地项目通过git的形式部署到阿里云或腾讯云服务器</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83%E4%B8%8E%E5%87%86%E5%A4%87"><span class="top-box-text">部署环境与准备</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE-Git"><span class="top-box-text">云服务器配置 Git</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AE"><span class="top-box-text">云服务器网站配置</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#%E5%B8%B8%E8%A7%81%E6%8A%A5%E9%94%99"><span class="top-box-text">常见报错</span></a></li></ol></li></ol></li></ol>
+        </div>
+          
+      </div>
+    </div>
+
+    
+      <div class="next-post">
+        <a class="purple-link" href="/2025/06/16/armbian-she-zhi-gu-ding-jing-tai-ip/">
+          <h3 class="post-title">
+            
+            下一篇：armbian设置固定静态ip
+          </h3>
+        </a>
+      </div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+<footer>
+<div class="site-footer">
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  
+
+  
+
+  
+    <div>
+      <a href="https://beian.miit.gov.cn" target="_blank">鄂ICP备2023028588号-4</a>
+    </div>
+  
+
+  
+    <div>
+      <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">本站由 <img src="/images/upyun_logo.png" alt="又拍云" style="height:2em;vertical-align:-0.65em;"> 提供CDN加速/云存储服务</a>
+    </div>
+  
+
+</div>
+</footer>
+
+
+      </div>
+    </div>
+    
+<script id="hexo-configurations"> window.theme_config = {"image":{"lazyload_enable":true,"lazyload_placeholder":null,"photo_zoom":false},"search":{"enable":true,"type":"json","placeholder":"输入关键词搜索...","algolia":{"appID":"","apiKey":"","indexName":""}},"language":"zh-CN"}; window.is_post = true; </script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+

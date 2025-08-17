@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+
+    
+<script>!function(){var e=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,t=localStorage.getItem("use-color-scheme")||"auto";("dark"===t||e&&"light"!==t)&&document.documentElement.classList.toggle("dark",!0)}()</script>
+    
+
+<meta charset="utf-8" >
+
+<title>hexo基本使用</title>
+<meta name="keywords" content="hexo基本使用, kk&#39;shining">
+<meta name="description" content="hexo三部曲1234hexo c # clean 清除缓存hexo g # genernate 生成静态文件hexo d # deploy 自动生成网站静态文件，并部署到设定的仓库hexo s # server 启动服务预览并自动更新
+
+">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="hexo基本使用">
+<meta property="og:description" content="hexo三部曲1234hexo c # clean 清除缓存hexo g # genernate 生成静态文件hexo d # deploy 自动生成网站静态文件，并部署到设定的仓库hexo s # server 启动服务预览并自动更新
+
+">
+
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="/style/main.css">
+
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body>
+    <div id="app" class="main">
+
+<div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://blog.shiningonly.cn">
+        <img class="avatar" src="/images/avatar.png" alt="logo" width="32px" height="32px">
+      </a>
+      <a href="https://blog.shiningonly.cn">
+        <h1 class="site-title">kk&#39;shining</h1>
+      </a>
+    </div>
+    <div class="right">
+        <i class="icon menu-switch icon-menu-outline" ></i>
+    </div>
+  </div>
+</div>
+
+<div class="menu-container" style="height: 0;opacity: 0;">
+<nav class="menu-list">
+  
+    
+      <a href="/" class="menu purple-link">
+        首页
+      </a>
+    
+  
+    
+      <a href="/tags" class="menu purple-link">
+        标签
+      </a>
+    
+  
+    
+      <a href="/archives" class="menu purple-link">
+        归档
+      </a>
+    
+  
+    
+      <a href="/about" class="menu purple-link">
+        关于
+      </a>
+    
+  
+</nav>
+</div>
+
+
+
+  <div class="content-container">
+    <div class="post-detail">
+      
+      <h2 class="post-title">hexo基本使用</h2>
+      <div class="post-info post-detail-info">
+        <span><i class="icon icon-calendar-outline"></i> 2025-08-16</span>
+        
+      </div>
+      <div class="post-content-wrapper">
+        <div class="post-content">
+          <h2 id="hexo三部曲"><a href="#hexo三部曲" class="headerlink" title="hexo三部曲"></a>hexo三部曲</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo c <span class="comment"># clean 清除缓存</span></span><br><span class="line">hexo g <span class="comment"># genernate 生成静态文件</span></span><br><span class="line">hexo d <span class="comment"># deploy 自动生成网站静态文件，并部署到设定的仓库</span></span><br><span class="line">hexo s <span class="comment"># server 启动服务预览并自动更新</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p><strong>问题描述</strong></p>
+<p>已经在站点配置文件中写入了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@github.com:lanlan2017/lanlan2017.github.io.git  <span class="comment"># Github pages地址</span></span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>但是执行，<code>hexo d</code>报错：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR Deployer not found: git</span><br></pre></td></tr></table></figure>
+
+<p><strong>解决方案</strong><br>这是因为没安装<code>hexo-deployer-git</code>插件，在<strong>站点目录</strong>下输入下面的插件安装就好了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>然后在使用<code>Hexo d</code>命令就可以推送了。</p>
+
+        </div>
+          
+        <div class="top-div">
+          <ol class="top-box"><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#hexo%E4%B8%89%E9%83%A8%E6%9B%B2"><span class="top-box-text">hexo三部曲</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="top-box-text">常见问题</span></a></li></ol></li></ol>
+        </div>
+          
+      </div>
+    </div>
+
+    
+      <div class="next-post">
+        <a class="purple-link" href="/2025/08/16/nei-wang-chuan-tou/">
+          <h3 class="post-title">
+            
+            下一篇：内网穿透
+          </h3>
+        </a>
+      </div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+<footer>
+<div class="site-footer">
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  
+
+  
+
+  
+    <div>
+      <a href="https://beian.miit.gov.cn" target="_blank">鄂ICP备2023028588号-4</a>
+    </div>
+  
+
+  
+    <div>
+      <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">本站由 <img src="/images/upyun_logo.png" alt="又拍云" style="height:2em;vertical-align:-0.65em;"> 提供CDN加速/云存储服务</a>
+    </div>
+  
+
+</div>
+</footer>
+
+
+      </div>
+    </div>
+    
+<script id="hexo-configurations"> window.theme_config = {"image":{"lazyload_enable":true,"lazyload_placeholder":null,"photo_zoom":false},"search":{"enable":true,"type":"json","placeholder":"输入关键词搜索...","algolia":{"appID":"","apiKey":"","indexName":""}},"language":"zh-CN"}; window.is_post = true; </script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+

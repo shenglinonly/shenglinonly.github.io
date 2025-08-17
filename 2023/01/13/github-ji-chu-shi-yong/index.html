@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+
+    
+<script>!function(){var e=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,t=localStorage.getItem("use-color-scheme")||"auto";("dark"===t||e&&"light"!==t)&&document.documentElement.classList.toggle("dark",!0)}()</script>
+    
+
+<meta charset="utf-8" >
+
+<title>github基础使用</title>
+<meta name="keywords" content="github基础使用, kk&#39;shining">
+<meta name="description" content="官方
+123456&gt;git init&gt;git add README.md&gt;git commit -m &quot;first commit&quot;&gt;git branch -M main&gt;git remote">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="github基础使用">
+<meta property="og:description" content="官方
+123456&gt;git init&gt;git add README.md&gt;git commit -m &quot;first commit&quot;&gt;git branch -M main&gt;git remote">
+
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="/style/main.css">
+
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body>
+    <div id="app" class="main">
+
+<div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://blog.shiningonly.cn">
+        <img class="avatar" src="/images/avatar.png" alt="logo" width="32px" height="32px">
+      </a>
+      <a href="https://blog.shiningonly.cn">
+        <h1 class="site-title">kk&#39;shining</h1>
+      </a>
+    </div>
+    <div class="right">
+        <i class="icon menu-switch icon-menu-outline" ></i>
+    </div>
+  </div>
+</div>
+
+<div class="menu-container" style="height: 0;opacity: 0;">
+<nav class="menu-list">
+  
+    
+      <a href="/" class="menu purple-link">
+        首页
+      </a>
+    
+  
+    
+      <a href="/tags" class="menu purple-link">
+        标签
+      </a>
+    
+  
+    
+      <a href="/archives" class="menu purple-link">
+        归档
+      </a>
+    
+  
+    
+      <a href="/about" class="menu purple-link">
+        关于
+      </a>
+    
+  
+</nav>
+</div>
+
+
+
+  <div class="content-container">
+    <div class="post-detail">
+      
+      <h2 class="post-title">github基础使用</h2>
+      <div class="post-info post-detail-info">
+        <span><i class="icon icon-calendar-outline"></i> 2023-01-13</span>
+        
+      </div>
+      <div class="post-content-wrapper">
+        <div class="post-content">
+          <h1 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h1><blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;git init</span><br><span class="line">&gt;git add README.md</span><br><span class="line">&gt;git commit -m <span class="string">&quot;first commit&quot;</span></span><br><span class="line">&gt;git branch -M main</span><br><span class="line">&gt;git remote add origin https://github.com/shenglinonly/web-monitor.git</span><br><span class="line">&gt;git push -u origin main</span><br></pre></td></tr></table></figure></blockquote>
+<h3 id="1-5-Git-的使用"><a href="#1-5-Git-的使用" class="headerlink" title="1.5 Git 的使用"></a>1.5 Git 的使用</h3><h4 id="1-5-1-Git-使用前配置"><a href="#1-5-1-Git-使用前配置" class="headerlink" title="1.5.1 Git 使用前配置"></a>1.5.1 Git 使用前配置</h4><p>在使用 git 前，需要告诉 git 你是谁，在向 git 仓库中提交时需要用到。</p>
+<ol>
+<li>配置提交人姓名：<code>git config --global user.name 提交人姓名</code></li>
+<li>配置提交人姓名：<code>git config --global user.email 提交人邮箱</code> </li>
+<li>查看git配置信息：<code>git config --list</code></li>
+</ol>
+<p><strong>注意</strong></p>
+<ol>
+<li><p>如果要对配置信息进行修改，重复上述命令即可。</p>
+</li>
+<li><p>配置只需要执行一次。</p>
+</li>
+</ol>
+<h4 id="1-5-2-提交步骤"><a href="#1-5-2-提交步骤" class="headerlink" title="1.5.2 提交步骤"></a>1.5.2 提交步骤</h4><ol>
+<li><code>git init</code> 初始化git仓库</li>
+<li><code>git status</code> 查看文件状态</li>
+<li><code>git add 文件列表</code> 追踪文件</li>
+<li><code>git commit -m 提交信息</code>  向仓库中提交代码</li>
+<li><code>git log</code> 查看提交记录</li>
+</ol>
+<p>git push 远程仓库地址 分支名称</p>
+<p>git push 远程仓库地址别名 分支名称</p>
+<p>git push -u 远程仓库地址别名 分支名称</p>
+<p>-u 记住推送地址及分支，下次推送只需要输入git push即可</p>
+<p>git remote add 远程仓库地址别名 远程仓库地址</p>
+
+        </div>
+          
+        <div class="top-div">
+          <ol class="top-box"><li class="top-box-item top-box-level-1"><a class="top-box-link" href="#%E5%AE%98%E6%96%B9"><span class="top-box-text">官方</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#1-5-Git-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="top-box-text">1.5 Git 的使用</span></a></li></ol></li></ol></li></ol>
+        </div>
+          
+      </div>
+    </div>
+
+    
+      <div class="next-post">
+        <a class="purple-link" href="/2023/01/13/ying-yan-zhi-neng-jian-kong-shi-bie-xi-tong/">
+          <h3 class="post-title">
+            
+            下一篇：鹰眼智能监控识别系统
+          </h3>
+        </a>
+      </div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+<footer>
+<div class="site-footer">
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  
+
+  
+
+  
+    <div>
+      <a href="https://beian.miit.gov.cn" target="_blank">鄂ICP备2023028588号-4</a>
+    </div>
+  
+
+  
+    <div>
+      <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">本站由 <img src="/images/upyun_logo.png" alt="又拍云" style="height:2em;vertical-align:-0.65em;"> 提供CDN加速/云存储服务</a>
+    </div>
+  
+
+</div>
+</footer>
+
+
+      </div>
+    </div>
+    
+<script id="hexo-configurations"> window.theme_config = {"image":{"lazyload_enable":true,"lazyload_placeholder":null,"photo_zoom":false},"search":{"enable":true,"type":"json","placeholder":"输入关键词搜索...","algolia":{"appID":"","apiKey":"","indexName":""}},"language":"zh-CN"}; window.is_post = true; </script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+

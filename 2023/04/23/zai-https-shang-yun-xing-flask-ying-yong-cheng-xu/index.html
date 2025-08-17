@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+
+    
+<script>!function(){var e=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,t=localStorage.getItem("use-color-scheme")||"auto";("dark"===t||e&&"light"!==t)&&document.documentElement.classList.toggle("dark",!0)}()</script>
+    
+
+<meta charset="utf-8" >
+
+<title>在 HTTPS 上运行 FLASK 应用程序</title>
+<meta name="keywords" content="在 HTTPS 上运行 FLASK 应用程序, kk&#39;shining">
+<meta name="description" content="在 HTTPS 上运行 FLASK 应用程序介绍在开发FLASK 应用过程中，通常会运行开发 web 服务器，它提供了一个基本的、但功能齐全的 WSGI HTTP 服务器。但是当部署应用程序到生产环境中，需要考虑的事情之一是，是否应该要求客">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="在 HTTPS 上运行 FLASK 应用程序">
+<meta property="og:description" content="在 HTTPS 上运行 FLASK 应用程序介绍在开发FLASK 应用过程中，通常会运行开发 web 服务器，它提供了一个基本的、但功能齐全的 WSGI HTTP 服务器。但是当部署应用程序到生产环境中，需要考虑的事情之一是，是否应该要求客">
+
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="/style/main.css">
+
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body>
+    <div id="app" class="main">
+
+<div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://blog.shiningonly.cn">
+        <img class="avatar" src="/images/avatar.png" alt="logo" width="32px" height="32px">
+      </a>
+      <a href="https://blog.shiningonly.cn">
+        <h1 class="site-title">kk&#39;shining</h1>
+      </a>
+    </div>
+    <div class="right">
+        <i class="icon menu-switch icon-menu-outline" ></i>
+    </div>
+  </div>
+</div>
+
+<div class="menu-container" style="height: 0;opacity: 0;">
+<nav class="menu-list">
+  
+    
+      <a href="/" class="menu purple-link">
+        首页
+      </a>
+    
+  
+    
+      <a href="/tags" class="menu purple-link">
+        标签
+      </a>
+    
+  
+    
+      <a href="/archives" class="menu purple-link">
+        归档
+      </a>
+    
+  
+    
+      <a href="/about" class="menu purple-link">
+        关于
+      </a>
+    
+  
+</nav>
+</div>
+
+
+
+  <div class="content-container">
+    <div class="post-detail">
+      
+      <h2 class="post-title">在 HTTPS 上运行 FLASK 应用程序</h2>
+      <div class="post-info post-detail-info">
+        <span><i class="icon icon-calendar-outline"></i> 2023-04-23</span>
+        
+      </div>
+      <div class="post-content-wrapper">
+        <div class="post-content">
+          <h1 id="在-HTTPS-上运行-FLASK-应用程序"><a href="#在-HTTPS-上运行-FLASK-应用程序" class="headerlink" title="在 HTTPS 上运行 FLASK 应用程序"></a>在 HTTPS 上运行 FLASK 应用程序</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>在开发FLASK 应用过程中，通常会运行开发 web 服务器，它提供了一个基本的、但功能齐全的 WSGI HTTP 服务器。但是当部署应用程序到生产环境中，需要考虑的事情之一是，是否应该要求客户端使用加密连接以增加安全性。</p>
+<h2 id="最简单的方法"><a href="#最简单的方法" class="headerlink" title="最简单的方法"></a>最简单的方法</h2><p>Flask (更具体地说是 Werkzeug)支持使用动态证书(on-the-fly certificates) ，这对于通过HTTPS快速为应用程序提供服务而无需证书时非常有用。<br>​</p>
+<p>要在 Flask 上使用临时证书，你需要在虚拟环境中安装一个附加依赖项:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install pyopenssl</span><br></pre></td></tr></table></figure>
+
+
+
+<p>然后将ssl_context &#x3D;’adhoc’添加到 app.run()调用中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello World!&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    app.run(ssl_context=<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果您使用的是Flask 1.x发行版，则还可以通过Flask CLI使用此选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ flask run --cert=adhoc</span><br></pre></td></tr></table></figure>
+
+
+
+<p>当运行这个脚本(或者 flask run ) ，你会注意到 Flask 表明它运行的是 <a target="_blank" rel="noopener" href="https://server/">https://server</a>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python hello.py</span><br><span class="line"> * Running on https://127.0.0.1:5000/ (Press CTRL+C to quit)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>但是存在的问题是，浏览器不喜欢这种类型的证书，所以它们会显示一个可怕的警告，您需要在访问应用程序之前解除这个警告。一旦你允许浏览器连接，你将会有一个加密的连接，就像你从一个有效证书的服务器那里得到的一样，使用这些临时证书可以很方便进行测试，但不适用于任何实际用途。<br>​</p>
+<h2 id="自签名证书"><a href="#自签名证书" class="headerlink" title="自签名证书"></a>自签名证书</h2><p>所谓的自签名证书是使用与该证书关联的私钥生成签名的证书。 我在上面提到，客户端需要“了解并信任”签署证书的CA，因为这种信任关系使客户端可以验证服务器证书。 Web 浏览器和其他 HTTP 客户端预先配置了已知和受信任的 CA 列表，但是显然，如果使用自签名证书，则CA将不会被知晓，并且验证将失败。 这正是我们在上一节中使用的临时证书所发生的。 如果 web 浏览器无法验证服务器证书，它允许继续进行操作并访问有问题的网站，但它将提醒你这样做需要承担的风险。</p>
+<p>但是真的有风险吗？ 使用上一部分的Flask服务器，你显然相信自己，所以对你来说没有风险。 问题是，当用户连接到他们不了解或控制的站点时，会出现此警告。 在这种情况下，用户将无法知道服务器是否真实，因为任何人都可以为任何域生成证书。<br>​</p>
+<p>虽然自签名证书有时很有用，但 Flask 中的临时证书并不是很好，因为每次服务器运行时，都会通过 pyOpenSSL 生成不同的证书。当使用自签名证书时，最好在每次启动服务器时使用相同的证书，因为这样可以配置浏览器信任它，并消除安全警告。<br>​</p>
+<p>可以通过命令行生成自签名证书，只需安装 openssl:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365</span><br></pre></td></tr></table></figure>
+
+
+
+<p>该命令在cert.pem中写入一个新证书，并在key.pem中写入其对应的私钥，有效期为365天。<br>运行此命令时，将询问几个问题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Generating a 4096 bit RSA private key</span><br><span class="line">......................++</span><br><span class="line">.............++</span><br><span class="line">writing new private key to <span class="string">&#x27;key.pem&#x27;</span></span><br><span class="line">-----</span><br><span class="line">You are about to be asked to enter information that will be incorporated</span><br><span class="line">into your certificate request.</span><br><span class="line">What you are about to enter is what is called a Distinguished Name or a DN.</span><br><span class="line">There are quite a few fields but you can leave some blank</span><br><span class="line">For some fields there will be a default value,</span><br><span class="line">If you enter <span class="string">&#x27;.&#x27;</span>, the field will be left blank.</span><br><span class="line">-----</span><br><span class="line">Country Name (2 letter code) [AU]:US</span><br><span class="line">State or Province Name (full name) [Some-State]:Oregon</span><br><span class="line">Locality Name (eg, city) []:Portland</span><br><span class="line">Organization Name (eg, company) [Internet Widgits Pty Ltd]:Miguel Grinberg Blog</span><br><span class="line">Organizational Unit Name (eg, section) []:</span><br><span class="line">Common Name (e.g. server FQDN or YOUR name) []:localhost</span><br><span class="line">Email Address []:</span><br></pre></td></tr></table></figure>
+
+
+
+<p>现在，我们可以在 Flask 应用程序中使用这个新的自签名证书，方法是将 app.run()中的 ssl_context 参数设置为一个元组，其中包含证书和私钥文件的文件名。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">rom flask <span class="keyword">import</span> Flask</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello World!&quot;</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    app.run(ssl_context=(<span class="string">&#x27;cert.pem&#x27;</span>, <span class="string">&#x27;key.pem&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果你使用的是Flask 1.x或更高版本，则可以在flask run命令中添加–cert和–key选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ flask run --cert=cert.pem --key=key.pem</span><br></pre></td></tr></table></figure>
+
+
+
+<p>浏览器仍然会告警，但是如果你检查这个证书，你会看到你创建它时输入的信息</p>
+<h2 id="使用生产-Web-服务器"><a href="#使用生产-Web-服务器" class="headerlink" title="使用生产 Web 服务器"></a>使用生产 Web 服务器</h2><p>我们都知道 Flask 开发服务器只适用于开发和测试。那么，我们如何在生产服务器上安装 SSL 证书呢？<br>​</p>
+<p>如果你使用 gunicorn，你可以使用命令行参数:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gunicorn --certfile cert.pem --keyfile key.pem -b 0.0.0.0:8000 hello:app</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果你使用 nginx 作为反向代理, 暂时不会:blush:</p>
+<p>转载自<a target="_blank" rel="noopener" href="https://www.cnblogs.com/geekspeng/articles/15054877.html">https://www.cnblogs.com/geekspeng/articles/15054877.html</a>, 如涉及侵权，请联系删除</p>
+
+        </div>
+          
+        <div class="top-div">
+          <ol class="top-box"><li class="top-box-item top-box-level-1"><a class="top-box-link" href="#%E5%9C%A8-HTTPS-%E4%B8%8A%E8%BF%90%E8%A1%8C-FLASK-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="top-box-text">在 HTTPS 上运行 FLASK 应用程序</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E4%BB%8B%E7%BB%8D"><span class="top-box-text">介绍</span></a></li><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E6%96%B9%E6%B3%95"><span class="top-box-text">最简单的方法</span></a></li><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6"><span class="top-box-text">自签名证书</span></a></li><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E4%BD%BF%E7%94%A8%E7%94%9F%E4%BA%A7-Web-%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="top-box-text">使用生产 Web 服务器</span></a></li></ol></li></ol>
+        </div>
+          
+      </div>
+    </div>
+
+    
+      <div class="next-post">
+        <a class="purple-link" href="/2023/04/19/zui-qiang-cheng-xu-yuan-ying-he-biao-bai/">
+          <h3 class="post-title">
+            
+            下一篇：最强程序员硬核表白
+          </h3>
+        </a>
+      </div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+<footer>
+<div class="site-footer">
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  
+
+  
+
+  
+    <div>
+      <a href="https://beian.miit.gov.cn" target="_blank">鄂ICP备2023028588号-4</a>
+    </div>
+  
+
+  
+    <div>
+      <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">本站由 <img src="/images/upyun_logo.png" alt="又拍云" style="height:2em;vertical-align:-0.65em;"> 提供CDN加速/云存储服务</a>
+    </div>
+  
+
+</div>
+</footer>
+
+
+      </div>
+    </div>
+    
+<script id="hexo-configurations"> window.theme_config = {"image":{"lazyload_enable":true,"lazyload_placeholder":null,"photo_zoom":false},"search":{"enable":true,"type":"json","placeholder":"输入关键词搜索...","algolia":{"appID":"","apiKey":"","indexName":""}},"language":"zh-CN"}; window.is_post = true; </script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+

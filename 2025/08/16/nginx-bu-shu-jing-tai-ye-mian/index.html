@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+
+    
+<script>!function(){var e=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,t=localStorage.getItem("use-color-scheme")||"auto";("dark"===t||e&&"light"!==t)&&document.documentElement.classList.toggle("dark",!0)}()</script>
+    
+
+<meta charset="utf-8" >
+
+<title>nginx部署静态页面</title>
+<meta name="keywords" content="nginx部署静态页面, kk&#39;shining">
+<meta name="description" content="nginx部署静态页面
+将打包好的静态资源上传至服务器
+
+注: 不要将网站目录上传到一些”&#x2F;“, “&#x2F;root”等目录, 会报错, 一般上传至&#x2F;www&#x2F;下
+
+
+在nginx配置文件中增加以下内容
+12">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="nginx部署静态页面">
+<meta property="og:description" content="nginx部署静态页面
+将打包好的静态资源上传至服务器
+
+注: 不要将网站目录上传到一些”&#x2F;“, “&#x2F;root”等目录, 会报错, 一般上传至&#x2F;www&#x2F;下
+
+
+在nginx配置文件中增加以下内容
+12">
+
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="/style/main.css">
+
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body>
+    <div id="app" class="main">
+
+<div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://blog.shiningonly.cn">
+        <img class="avatar" src="/images/avatar.png" alt="logo" width="32px" height="32px">
+      </a>
+      <a href="https://blog.shiningonly.cn">
+        <h1 class="site-title">kk&#39;shining</h1>
+      </a>
+    </div>
+    <div class="right">
+        <i class="icon menu-switch icon-menu-outline" ></i>
+    </div>
+  </div>
+</div>
+
+<div class="menu-container" style="height: 0;opacity: 0;">
+<nav class="menu-list">
+  
+    
+      <a href="/" class="menu purple-link">
+        首页
+      </a>
+    
+  
+    
+      <a href="/tags" class="menu purple-link">
+        标签
+      </a>
+    
+  
+    
+      <a href="/archives" class="menu purple-link">
+        归档
+      </a>
+    
+  
+    
+      <a href="/about" class="menu purple-link">
+        关于
+      </a>
+    
+  
+</nav>
+</div>
+
+
+
+  <div class="content-container">
+    <div class="post-detail">
+      
+      <h2 class="post-title">nginx部署静态页面</h2>
+      <div class="post-info post-detail-info">
+        <span><i class="icon icon-calendar-outline"></i> 2025-08-16</span>
+        
+      </div>
+      <div class="post-content-wrapper">
+        <div class="post-content">
+          <h1 id="nginx部署静态页面"><a href="#nginx部署静态页面" class="headerlink" title="nginx部署静态页面"></a>nginx部署静态页面</h1><ol>
+<li><p>将打包好的静态资源上传至服务器</p>
+<ul>
+<li>注: 不要将网站目录上传到一些”&#x2F;“, “&#x2F;root”等目录, 会报错, 一般上传至&#x2F;www&#x2F;下</li>
+</ul>
+</li>
+<li><p>在nginx配置文件中增加以下内容</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">server_name</span> bboss.cc;</span><br><span class="line">  <span class="attribute">root</span> /www/WWW/;</span><br><span class="line">  <span class="attribute">index</span> index.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>server_name 域名</li>
+<li>root 上传的文件夹路径</li>
+<li>index 首页面</li>
+</ul>
+</li>
+<li><p>保存配置文件, 重载配置, 浏览器输入域名, 大功告成!</p>
+</li>
+</ol>
+<p><strong>注意事项</strong></p>
+<ol>
+<li>上传打包好的静态资源文件时最好整个文件夹一起上传, 避免影响文件之间的关联性</li>
+</ol>
+
+        </div>
+          
+        <div class="top-div">
+          <ol class="top-box"><li class="top-box-item top-box-level-1"><a class="top-box-link" href="#nginx%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2"><span class="top-box-text">nginx部署静态页面</span></a></li></ol>
+        </div>
+          
+      </div>
+    </div>
+
+    
+      <div class="next-post">
+        <a class="purple-link" href="/2025/08/16/hexo-ji-ben-shi-yong/">
+          <h3 class="post-title">
+            
+            下一篇：hexo基本使用
+          </h3>
+        </a>
+      </div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+<footer>
+<div class="site-footer">
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  
+
+  
+
+  
+    <div>
+      <a href="https://beian.miit.gov.cn" target="_blank">鄂ICP备2023028588号-4</a>
+    </div>
+  
+
+  
+    <div>
+      <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">本站由 <img src="/images/upyun_logo.png" alt="又拍云" style="height:2em;vertical-align:-0.65em;"> 提供CDN加速/云存储服务</a>
+    </div>
+  
+
+</div>
+</footer>
+
+
+      </div>
+    </div>
+    
+<script id="hexo-configurations"> window.theme_config = {"image":{"lazyload_enable":true,"lazyload_placeholder":null,"photo_zoom":false},"search":{"enable":true,"type":"json","placeholder":"输入关键词搜索...","algolia":{"appID":"","apiKey":"","indexName":""}},"language":"zh-CN"}; window.is_post = true; </script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+

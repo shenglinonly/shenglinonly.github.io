@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+
+    
+<script>!function(){var e=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,t=localStorage.getItem("use-color-scheme")||"auto";("dark"===t||e&&"light"!==t)&&document.documentElement.classList.toggle("dark",!0)}()</script>
+    
+
+<meta charset="utf-8" >
+
+<title>怎样用不同的域名访问一台服务器上的多个网站</title>
+<meta name="keywords" content="怎样用不同的域名访问一台服务器上的多个网站, kk&#39;shining">
+<meta name="description" content="怎样用不同的域名访问一台服务器上的多个网站首先去域名服务商添加域名解析可以将不同的子域名都定向(A)到同一个ip地址
+在服务器端添加nginx配置对应的域名就在对应服务的server块中修改成server name
+原理
+nginx会做匹配">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="怎样用不同的域名访问一台服务器上的多个网站">
+<meta property="og:description" content="怎样用不同的域名访问一台服务器上的多个网站首先去域名服务商添加域名解析可以将不同的子域名都定向(A)到同一个ip地址
+在服务器端添加nginx配置对应的域名就在对应服务的server块中修改成server name
+原理
+nginx会做匹配">
+
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="/style/main.css">
+
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body>
+    <div id="app" class="main">
+
+<div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://blog.shiningonly.cn">
+        <img class="avatar" src="/images/avatar.png" alt="logo" width="32px" height="32px">
+      </a>
+      <a href="https://blog.shiningonly.cn">
+        <h1 class="site-title">kk&#39;shining</h1>
+      </a>
+    </div>
+    <div class="right">
+        <i class="icon menu-switch icon-menu-outline" ></i>
+    </div>
+  </div>
+</div>
+
+<div class="menu-container" style="height: 0;opacity: 0;">
+<nav class="menu-list">
+  
+    
+      <a href="/" class="menu purple-link">
+        首页
+      </a>
+    
+  
+    
+      <a href="/tags" class="menu purple-link">
+        标签
+      </a>
+    
+  
+    
+      <a href="/archives" class="menu purple-link">
+        归档
+      </a>
+    
+  
+    
+      <a href="/about" class="menu purple-link">
+        关于
+      </a>
+    
+  
+</nav>
+</div>
+
+
+
+  <div class="content-container">
+    <div class="post-detail">
+      
+      <h2 class="post-title">怎样用不同的域名访问一台服务器上的多个网站</h2>
+      <div class="post-info post-detail-info">
+        <span><i class="icon icon-calendar-outline"></i> 2023-08-11</span>
+        
+      </div>
+      <div class="post-content-wrapper">
+        <div class="post-content">
+          <h1 id="怎样用不同的域名访问一台服务器上的多个网站"><a href="#怎样用不同的域名访问一台服务器上的多个网站" class="headerlink" title="怎样用不同的域名访问一台服务器上的多个网站"></a>怎样用不同的域名访问一台服务器上的多个网站</h1><h3 id="首先去域名服务商添加域名解析"><a href="#首先去域名服务商添加域名解析" class="headerlink" title="首先去域名服务商添加域名解析"></a>首先去域名服务商添加域名解析</h3><p>可以将不同的子域名都定向(A)到同一个ip地址</p>
+<h3 id="在服务器端添加nginx配置"><a href="#在服务器端添加nginx配置" class="headerlink" title="在服务器端添加nginx配置"></a>在服务器端添加nginx配置</h3><p>对应的域名就在对应服务的server块中修改成server name</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ul>
+<li>nginx会做匹配工作</li>
+<li>尽管域名解析不同的子域名添加的都是同一个ip地址, 但是用不同的域名请求这个ip时nginx会做匹配</li>
+<li>不同的域名会通过请求头中的HOST字段，匹配到特定的server块，转发到对应的应用服务器中去</li>
+</ul>
+
+        </div>
+          
+        <div class="top-div">
+          <ol class="top-box"><li class="top-box-item top-box-level-1"><a class="top-box-link" href="#%E6%80%8E%E6%A0%B7%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE%E4%B8%80%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84%E5%A4%9A%E4%B8%AA%E7%BD%91%E7%AB%99"><span class="top-box-text">怎样用不同的域名访问一台服务器上的多个网站</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#%E9%A6%96%E5%85%88%E5%8E%BB%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%95%86%E6%B7%BB%E5%8A%A0%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90"><span class="top-box-text">首先去域名服务商添加域名解析</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B7%BB%E5%8A%A0nginx%E9%85%8D%E7%BD%AE"><span class="top-box-text">在服务器端添加nginx配置</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#%E5%8E%9F%E7%90%86"><span class="top-box-text">原理</span></a></li></ol></li></ol></li></ol>
+        </div>
+          
+      </div>
+    </div>
+
+    
+      <div class="next-post">
+        <a class="purple-link" href="/2023/06/28/git-ben-di-yu-yuan-cheng-cang-ku-bu-yi-yang-shi-geng-xin-ben-di-cang-ku-jiao-cheng/">
+          <h3 class="post-title">
+            
+            下一篇：git 本地与远程仓库不一样时更新本地仓库教程
+          </h3>
+        </a>
+      </div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+<footer>
+<div class="site-footer">
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  
+
+  
+
+  
+    <div>
+      <a href="https://beian.miit.gov.cn" target="_blank">鄂ICP备2023028588号-4</a>
+    </div>
+  
+
+  
+    <div>
+      <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">本站由 <img src="/images/upyun_logo.png" alt="又拍云" style="height:2em;vertical-align:-0.65em;"> 提供CDN加速/云存储服务</a>
+    </div>
+  
+
+</div>
+</footer>
+
+
+      </div>
+    </div>
+    
+<script id="hexo-configurations"> window.theme_config = {"image":{"lazyload_enable":true,"lazyload_placeholder":null,"photo_zoom":false},"search":{"enable":true,"type":"json","placeholder":"输入关键词搜索...","algolia":{"appID":"","apiKey":"","indexName":""}},"language":"zh-CN"}; window.is_post = true; </script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+

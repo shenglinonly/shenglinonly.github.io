@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+
+    
+<script>!function(){var e=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,t=localStorage.getItem("use-color-scheme")||"auto";("dark"===t||e&&"light"!==t)&&document.documentElement.classList.toggle("dark",!0)}()</script>
+    
+
+<meta charset="utf-8" >
+
+<title>armbian设置固定静态ip</title>
+<meta name="keywords" content="armbian设置固定静态ip, kk&#39;shining">
+<meta name="description" content="armbian设置固定静态ip
+N1盒子刷成armbian设置静态ip
+
+切换目录
+1ls /etc/netplan
+
+nano编辑以yaml结尾文件(如没有, 新建一个), 添加如下内容
+123456789101112network:  ">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="armbian设置固定静态ip">
+<meta property="og:description" content="armbian设置固定静态ip
+N1盒子刷成armbian设置静态ip
+
+切换目录
+1ls /etc/netplan
+
+nano编辑以yaml结尾文件(如没有, 新建一个), 添加如下内容
+123456789101112network:  ">
+
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="/style/main.css">
+
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body>
+    <div id="app" class="main">
+
+<div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://blog.shiningonly.cn">
+        <img class="avatar" src="/images/avatar.png" alt="logo" width="32px" height="32px">
+      </a>
+      <a href="https://blog.shiningonly.cn">
+        <h1 class="site-title">kk&#39;shining</h1>
+      </a>
+    </div>
+    <div class="right">
+        <i class="icon menu-switch icon-menu-outline" ></i>
+    </div>
+  </div>
+</div>
+
+<div class="menu-container" style="height: 0;opacity: 0;">
+<nav class="menu-list">
+  
+    
+      <a href="/" class="menu purple-link">
+        首页
+      </a>
+    
+  
+    
+      <a href="/tags" class="menu purple-link">
+        标签
+      </a>
+    
+  
+    
+      <a href="/archives" class="menu purple-link">
+        归档
+      </a>
+    
+  
+    
+      <a href="/about" class="menu purple-link">
+        关于
+      </a>
+    
+  
+</nav>
+</div>
+
+
+
+  <div class="content-container">
+    <div class="post-detail">
+      
+      <h2 class="post-title">armbian设置固定静态ip</h2>
+      <div class="post-info post-detail-info">
+        <span><i class="icon icon-calendar-outline"></i> 2025-06-16</span>
+        
+      </div>
+      <div class="post-content-wrapper">
+        <div class="post-content">
+          <h1 id="armbian设置固定静态ip"><a href="#armbian设置固定静态ip" class="headerlink" title="armbian设置固定静态ip"></a>armbian设置固定静态ip</h1><blockquote>
+<p>N1盒子刷成armbian设置静态ip</p>
+</blockquote>
+<p>切换目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> /etc/netplan</span><br></pre></td></tr></table></figure>
+
+<p>nano编辑以yaml结尾文件(如没有, 新建一个), 添加如下内容</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">network:</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">renderer:</span> <span class="string">NetworkManager</span></span><br><span class="line">  <span class="attr">ethernets:</span></span><br><span class="line">    <span class="attr">eth0:</span></span><br><span class="line">      <span class="attr">dhcp4:</span> <span class="literal">no</span>                                     <span class="comment">#关闭动态获取ip</span></span><br><span class="line">      <span class="attr">addresses:</span> [<span class="number">192.168</span><span class="number">.2</span><span class="number">.253</span><span class="string">/24</span>]                 <span class="comment">#静态ip</span></span><br><span class="line">      <span class="attr">nameservers:</span></span><br><span class="line">        <span class="attr">addresses:</span> [<span class="number">192.168</span><span class="number">.2</span><span class="number">.1</span>, <span class="number">192.168</span><span class="number">.2</span><span class="number">.254</span>]     <span class="comment">#dns，可以设置一个</span></span><br><span class="line">      <span class="attr">routes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">to:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/0</span>           <span class="comment">#代表了所有请求</span></span><br><span class="line">          <span class="attr">via:</span> <span class="number">192.168</span><span class="number">.2</span><span class="number">.1</span>        <span class="comment">#网关地址</span></span><br></pre></td></tr></table></figure>
+
+<p><code>reboot</code>重启即可</p>
+
+        </div>
+          
+        <div class="top-div">
+          <ol class="top-box"><li class="top-box-item top-box-level-1"><a class="top-box-link" href="#armbian%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9A%E9%9D%99%E6%80%81ip"><span class="top-box-text">armbian设置固定静态ip</span></a></li></ol>
+        </div>
+          
+      </div>
+    </div>
+
+    
+      <div class="next-post">
+        <a class="purple-link" href="/2025/06/04/windows-jia-ting-ban-kai-qi-yuan-cheng-zhuo-mian/">
+          <h3 class="post-title">
+            
+            下一篇：windows家庭版开启远程桌面
+          </h3>
+        </a>
+      </div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+<footer>
+<div class="site-footer">
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  
+
+  
+
+  
+    <div>
+      <a href="https://beian.miit.gov.cn" target="_blank">鄂ICP备2023028588号-4</a>
+    </div>
+  
+
+  
+    <div>
+      <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">本站由 <img src="/images/upyun_logo.png" alt="又拍云" style="height:2em;vertical-align:-0.65em;"> 提供CDN加速/云存储服务</a>
+    </div>
+  
+
+</div>
+</footer>
+
+
+      </div>
+    </div>
+    
+<script id="hexo-configurations"> window.theme_config = {"image":{"lazyload_enable":true,"lazyload_placeholder":null,"photo_zoom":false},"search":{"enable":true,"type":"json","placeholder":"输入关键词搜索...","algolia":{"appID":"","apiKey":"","indexName":""}},"language":"zh-CN"}; window.is_post = true; </script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+

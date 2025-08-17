@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+
+    
+<script>!function(){var e=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,t=localStorage.getItem("use-color-scheme")||"auto";("dark"===t||e&&"light"!==t)&&document.documentElement.classList.toggle("dark",!0)}()</script>
+    
+
+<meta charset="utf-8" >
+
+<title>当拿到一个新服务器时所需准备工作</title>
+<meta name="keywords" content="当拿到一个新服务器时所需准备工作, kk&#39;shining">
+<meta name="description" content="当拿到一个新服务器时所需准备工作安装python
+首先使用wget命令在Linux下载安装包
+1wget https://repo.anaconda.com/miniconda/Miniconda3-py38_4.9.2-Linux-x86">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="当拿到一个新服务器时所需准备工作">
+<meta property="og:description" content="当拿到一个新服务器时所需准备工作安装python
+首先使用wget命令在Linux下载安装包
+1wget https://repo.anaconda.com/miniconda/Miniconda3-py38_4.9.2-Linux-x86">
+
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="/style/main.css">
+
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body>
+    <div id="app" class="main">
+
+<div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://blog.shiningonly.cn">
+        <img class="avatar" src="/images/avatar.png" alt="logo" width="32px" height="32px">
+      </a>
+      <a href="https://blog.shiningonly.cn">
+        <h1 class="site-title">kk&#39;shining</h1>
+      </a>
+    </div>
+    <div class="right">
+        <i class="icon menu-switch icon-menu-outline" ></i>
+    </div>
+  </div>
+</div>
+
+<div class="menu-container" style="height: 0;opacity: 0;">
+<nav class="menu-list">
+  
+    
+      <a href="/" class="menu purple-link">
+        首页
+      </a>
+    
+  
+    
+      <a href="/tags" class="menu purple-link">
+        标签
+      </a>
+    
+  
+    
+      <a href="/archives" class="menu purple-link">
+        归档
+      </a>
+    
+  
+    
+      <a href="/about" class="menu purple-link">
+        关于
+      </a>
+    
+  
+</nav>
+</div>
+
+
+
+  <div class="content-container">
+    <div class="post-detail">
+      
+      <h2 class="post-title">当拿到一个新服务器时所需准备工作</h2>
+      <div class="post-info post-detail-info">
+        <span><i class="icon icon-calendar-outline"></i> 2023-08-14</span>
+        
+      </div>
+      <div class="post-content-wrapper">
+        <div class="post-content">
+          <h1 id="当拿到一个新服务器时所需准备工作"><a href="#当拿到一个新服务器时所需准备工作" class="headerlink" title="当拿到一个新服务器时所需准备工作"></a>当拿到一个新服务器时所需准备工作</h1><h2 id="安装python"><a href="#安装python" class="headerlink" title="安装python"></a>安装python</h2><ol>
+<li><p>首先使用<code>wget</code>命令在<code>Linux</code>下载安装包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo.anaconda.com/miniconda/Miniconda3-py38_4.9.2-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>使用 sh 指令运行安装包文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh Miniconda3-py38_4.9.2-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+
+<p>然后 回车 yes 回车…一直往下</p>
+</li>
+<li><p>安装完之后，配置并不会直接生效，需要使用 <code>source</code> 使修改之后的 <code>path</code> 生效才能正常使用。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后输入 <code>python</code> 即可查看安装版本啦</p>
+</li>
+</ol>
+<h2 id="安装pycharm"><a href="#安装pycharm" class="headerlink" title="安装pycharm"></a>安装pycharm</h2><ol>
+<li><p>首先在官网下载pycharm专业版，网址：<br><a target="_blank" rel="noopener" href="http://www.jetbrains.com/pycharm/download/#section=linux">http://www.jetbrains.com/pycharm/download/#section=linux</a></p>
+</li>
+<li><p>解压</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf filename.tar.gz //解压tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更改hosts文件（ etc&#x2F;hosts ），添加一行代码：0.0.0.0 account.jetbrains.com</p>
+<p>使用命令:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/hosts</span><br></pre></td></tr></table></figure>
+<p>添加, 保存退出</p>
+</li>
+<li><p>先cd到安装包的bin文件下, 然后运行:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh pycharm.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在Linux下面为了方便，不用每次进安装目录启动，顺手做了个别名，在&#x2F;etc&#x2F;profile文件最后增加一行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias pyc=&quot;sh ~/pycharm-2022.2.2/bin/pycharm.sh &amp;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>每次启动PyCharm只要敲别名pyc就行了。</p>
+</li>
+</ol>
+<h2 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h2><h3 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install git</span><br></pre></td></tr></table></figure>
+<h3 id="centos"><a href="#centos" class="headerlink" title="centos"></a>centos</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install git</span><br></pre></td></tr></table></figure>
+
+<p><strong>验证</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br><span class="line"></span><br><span class="line">git version 1.8.3.1</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h2><h3 id="ubuntu-1"><a href="#ubuntu-1" class="headerlink" title="ubuntu"></a>ubuntu</h3><ol>
+<li><p>可以先去 node.js 官网 <a target="_blank" rel="noopener" href="https://nodejs.org/">https://nodejs.org</a> 查看最新的版本号</p>
+<ul>
+<li>LTS 为稳定版</li>
+<li>current 为最新版</li>
+</ul>
+</li>
+<li><p>添加源后安装(<strong>这里用的是NodeSource提供的二进制包进行安装</strong>)</p>
+<ol start="3">
+<li><p>首先根据大版本号找到源, 如这里的16.x.x的源是:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://deb.nodesource.com/setup_16.x</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>所以在终端执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_16.x | <span class="built_in">sudo</span> -E bash -</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后再执行:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install -y nodejs</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<p>  等待安装完成</p>
+<p>   最后验证一下，执行：<code>node -v</code> 即可出现刚才安装的版本号。</p>
+<h3 id="centos-1"><a href="#centos-1" class="headerlink" title="centos"></a>centos</h3><ol>
+<li><p>在 root 目录下，<strong>下载</strong>Node.js安装包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v12.13.0/node-v12.13.0-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>解压</strong>文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvf node-v12.13.0-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建<strong>软链接</strong>，以便可以在任意目录下使用 node 和 npm 命令（类似在windows上配置全局环境变量）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s /root/node-v12.13.0-linux-x64/bin/node /usr/local/bin/node</span><br><span class="line"><span class="built_in">ln</span> -s /root/node-v12.13.0-linux-x64/bin/npm /usr/local/bin/npm</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>依次查看node和npm信息（<strong>验证安装</strong>是否成功）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="安装Mysql"><a href="#安装Mysql" class="headerlink" title="安装Mysql"></a>安装Mysql</h2><blockquote>
+<p>推荐使用宝塔面板来安装, 省事, 如果要用命令行来安装, 下面也有教程</p>
+</blockquote>
+<h3 id="安装服务端和客户端"><a href="#安装服务端和客户端" class="headerlink" title="安装服务端和客户端"></a>安装服务端和客户端</h3><p>​	在 Ubuntu 上安装 MySQL，最简单的方式是在线安装。只需要几行简单的命令（ <code>#</code> 号后面是注释）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 MySQL 服务端、核心程序 </span></span><br><span class="line"><span class="built_in">sudo</span> apt install mysql-server</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 MySQL 客户端</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install mysql-client    </span><br></pre></td></tr></table></figure>
+
+<p>服务器用于接收客户端的请求、执行 sql 语句、管理数据库</p>
+<p>服务器端一般以服务方式管理，名称为 mysql</p>
+<h3 id="修改初始密码"><a href="#修改初始密码" class="headerlink" title="修改初始密码"></a>修改初始密码</h3><p>​	在 Ubuntu 下使用命令安装 Mysql 时会直接安装好，没有初始化root密码</p>
+<ol>
+<li><p>首先输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/mysql/debian.cnf</span><br></pre></td></tr></table></figure>
+
+<p>​    打开&#x2F;etc&#x2F;mysql&#x2F;目录下的debian.cnf文件，记住这里的用户名和密码.</p>
+</li>
+<li><p>使用该密码登录Mysql</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u debian-sys-maint -p</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择数据库, 使用Mysql</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改密码时，5.7版本和8.0版本有所不同，需要使用不同的语句执行</p>
+<ul>
+<li><p>MySql5.7</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> authentication_string <span class="operator">=</span> password([&quot;新的密码&quot;]) <span class="keyword">where</span> <span class="keyword">user</span> <span class="operator">=</span> &quot;新的用户名&quot; [<span class="keyword">and</span> Host<span class="operator">=</span>&quot;localhost&quot;];</span><br></pre></td></tr></table></figure>
+
+<p>不晓得对不对(没试过)</p>
+</li>
+<li><p>MySql8.0</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">&#x27;你的密码&#x27;</span>;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h3 id="开启远程访问"><a href="#开启远程访问" class="headerlink" title="开启远程访问"></a>开启远程访问</h3><ol>
+<li><p>创建用户用来<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5&spm=1001.2101.3001.7020">远程连接</a>，运行如下命令:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> PRIVILEGES <span class="keyword">ON</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;root&#x27;</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数说明</p>
+<ul>
+<li>第一个root表示用户名</li>
+<li>%表示所有的电脑都可以连接，也可以设置某个 ip 地址运行连接</li>
+<li>第二个root表示密码</li>
+</ul>
+</blockquote>
+</li>
+<li><p>执行如下命令，立即生效</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>使用 exit 命令退出后，修改 mysql 的配置文件，运行如下命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vi /etc/mysql/mysql.conf.d/mysqld.cnf +43</span><br></pre></td></tr></table></figure>
+<p><strong>注意：其他 Linux系统 可能在 &#x2F;etc&#x2F;mysql&#x2F;my.cnf</strong></p>
+</li>
+<li><p>找到 “bind-address &#x3D; 127.0.0.1” , 这一行要注释掉，只需在前面加个#，即 # bind-address &#x3D; 127.0.0.1</p>
+</li>
+<li><p>然后重新启动, 运行如下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/mysql stop</span><br><span class="line"></span><br><span class="line">/etc/init.d/mysql start</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>之后就可以用 navicat 连接数据库了</p>
+
+        </div>
+          
+        <div class="top-div">
+          <ol class="top-box"><li class="top-box-item top-box-level-1"><a class="top-box-link" href="#%E5%BD%93%E6%8B%BF%E5%88%B0%E4%B8%80%E4%B8%AA%E6%96%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%B6%E6%89%80%E9%9C%80%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="top-box-text">当拿到一个新服务器时所需准备工作</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E5%AE%89%E8%A3%85python"><span class="top-box-text">安装python</span></a></li><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E5%AE%89%E8%A3%85pycharm"><span class="top-box-text">安装pycharm</span></a></li><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E5%AE%89%E8%A3%85-git"><span class="top-box-text">安装 git</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#ubuntu"><span class="top-box-text">ubuntu</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#centos"><span class="top-box-text">centos</span></a></li></ol></li><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E5%AE%89%E8%A3%85node-js"><span class="top-box-text">安装node.js</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#ubuntu-1"><span class="top-box-text">ubuntu</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#centos-1"><span class="top-box-text">centos</span></a></li></ol></li><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E5%AE%89%E8%A3%85Mysql"><span class="top-box-text">安装Mysql</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#%E5%AE%89%E8%A3%85%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="top-box-text">安装服务端和客户端</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#%E4%BF%AE%E6%94%B9%E5%88%9D%E5%A7%8B%E5%AF%86%E7%A0%81"><span class="top-box-text">修改初始密码</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#%E5%BC%80%E5%90%AF%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE"><span class="top-box-text">开启远程访问</span></a></li></ol></li></ol></li></ol>
+        </div>
+          
+      </div>
+    </div>
+
+    
+      <div class="next-post">
+        <a class="purple-link" href="/2023/08/13/san-ling-plc-python-da-zao-zhi-neng-wen-shi-du-xi-tong/">
+          <h3 class="post-title">
+            
+            下一篇：三菱plc+ python打造智能温湿度系统
+          </h3>
+        </a>
+      </div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+<footer>
+<div class="site-footer">
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  
+
+  
+
+  
+    <div>
+      <a href="https://beian.miit.gov.cn" target="_blank">鄂ICP备2023028588号-4</a>
+    </div>
+  
+
+  
+    <div>
+      <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">本站由 <img src="/images/upyun_logo.png" alt="又拍云" style="height:2em;vertical-align:-0.65em;"> 提供CDN加速/云存储服务</a>
+    </div>
+  
+
+</div>
+</footer>
+
+
+      </div>
+    </div>
+    
+<script id="hexo-configurations"> window.theme_config = {"image":{"lazyload_enable":true,"lazyload_placeholder":null,"photo_zoom":false},"search":{"enable":true,"type":"json","placeholder":"输入关键词搜索...","algolia":{"appID":"","apiKey":"","indexName":""}},"language":"zh-CN"}; window.is_post = true; </script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+

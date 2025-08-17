@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+
+    
+<script>!function(){var e=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,t=localStorage.getItem("use-color-scheme")||"auto";("dark"===t||e&&"light"!==t)&&document.documentElement.classList.toggle("dark",!0)}()</script>
+    
+
+<meta charset="utf-8" >
+
+<title>supervisor使用相关问题</title>
+<meta name="keywords" content="supervisor使用相关问题, kk&#39;shining">
+<meta name="description" content="supervisor使用相关问题简介Supervisor 是一款 Python 开发的进程管理系统，允许用户监视和控制 Linux 上的进程，能将一个普通命令行进程变为后台守护进程，异常退出时能自动重启
+常见问题使用supervisor添加">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="supervisor使用相关问题">
+<meta property="og:description" content="supervisor使用相关问题简介Supervisor 是一款 Python 开发的进程管理系统，允许用户监视和控制 Linux 上的进程，能将一个普通命令行进程变为后台守护进程，异常退出时能自动重启
+常见问题使用supervisor添加">
+
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="/style/main.css">
+
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body>
+    <div id="app" class="main">
+
+<div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://blog.shiningonly.cn">
+        <img class="avatar" src="/images/avatar.png" alt="logo" width="32px" height="32px">
+      </a>
+      <a href="https://blog.shiningonly.cn">
+        <h1 class="site-title">kk&#39;shining</h1>
+      </a>
+    </div>
+    <div class="right">
+        <i class="icon menu-switch icon-menu-outline" ></i>
+    </div>
+  </div>
+</div>
+
+<div class="menu-container" style="height: 0;opacity: 0;">
+<nav class="menu-list">
+  
+    
+      <a href="/" class="menu purple-link">
+        首页
+      </a>
+    
+  
+    
+      <a href="/tags" class="menu purple-link">
+        标签
+      </a>
+    
+  
+    
+      <a href="/archives" class="menu purple-link">
+        归档
+      </a>
+    
+  
+    
+      <a href="/about" class="menu purple-link">
+        关于
+      </a>
+    
+  
+</nav>
+</div>
+
+
+
+  <div class="content-container">
+    <div class="post-detail">
+      
+      <h2 class="post-title">supervisor使用相关问题</h2>
+      <div class="post-info post-detail-info">
+        <span><i class="icon icon-calendar-outline"></i> 2023-05-18</span>
+        
+      </div>
+      <div class="post-content-wrapper">
+        <div class="post-content">
+          <h1 id="supervisor使用相关问题"><a href="#supervisor使用相关问题" class="headerlink" title="supervisor使用相关问题"></a>supervisor使用相关问题</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Supervisor 是一款 Python 开发的进程管理系统，允许用户监视和控制 Linux 上的进程，能将一个普通命令行进程变为后台守护进程，异常退出时能自动重启</p>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><p>使用supervisor添加子配置文件时, 执行以下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl reread</span><br></pre></td></tr></table></figure>
+
+<p>后提示<code>No config updates to processes</code></p>
+<h3 id="产生原因可能如下"><a href="#产生原因可能如下" class="headerlink" title="产生原因可能如下"></a>产生原因可能如下</h3><ul>
+<li>配置文件没写对, 导致运行不起来</li>
+<li>centos路径没引用对</li>
+</ul>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><h3 id="1-正确路径"><a href="#1-正确路径" class="headerlink" title="1.正确路径"></a>1.正确路径</h3><p>通常我们加载子配置文件是会将配置文件supervisord.conf的最后一部分修改为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[include]</span><br><span class="line">files=/root/supervisor/conf.d/*.ini</span><br></pre></td></tr></table></figure>
+
+<p>这里有几个细节(都是我遇到过的并且踩坑了的)</p>
+<ol>
+<li><p>files后面最好不要加空格, 例如<code>files = /root/supervisor/conf.d/*.ini</code> 这种有可能会找不着路径</p>
+</li>
+<li><p>有的如果是<code>*.conf</code> 结尾的可能也用不起, 最好还是改成 <code>ini  </code> 结尾的</p>
+</li>
+<li><p>最开始这部分是注释着的, 最后取消注释的时候记得把<code>[include]</code> 这个也取消注释了,这也是我踩过的坑:sweat:</p>
+</li>
+</ol>
+<h3 id="2-正确配置文件"><a href="#2-正确配置文件" class="headerlink" title="2.正确配置文件"></a>2.正确配置文件</h3><p>关于配置文件的修改可以参考如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[program:<span class="built_in">test</span>]</span><br><span class="line"><span class="built_in">command</span>=sh /root/supervisord/test.sh</span><br><span class="line">priority=999                              ; 相对启动优先级，数值越小越优先，默认为999</span><br><span class="line">autostart=<span class="literal">true</span>                            ; 在supervisor启动时自动启动，默认为<span class="literal">true</span></span><br><span class="line">autorestart=<span class="literal">true</span>                          ; 在意外退出时重新启动，默认为<span class="literal">true</span></span><br><span class="line">startsecs=10                              ; 子进程启动多少秒后状态为running则认为启动成功，默认为1</span><br><span class="line">startretries=3                            ; 尝试启动的最大次数，默认为3</span><br><span class="line">exitcodes=0,2                             ; 进程的预期退出代码列表，默认为0</span><br><span class="line">stopsignal=QUIT                           ; 终止进程的信号，默认为TERM</span><br><span class="line">stopwaitsecs=10                           ; 在SIGKILL之前等待的最大秒数，默认为10</span><br><span class="line">user=root                                 ; 在某用户下设置uid来启动程序，默认不切换用户</span><br><span class="line">redirect_stderr=<span class="literal">true</span>                      ; 是否重定向stdout和stderr，默认为<span class="literal">false</span></span><br><span class="line">stdout_logfile=/tmp/supervisor.stdout.log  ; stdout的输出文件，默认为AUTO</span><br><span class="line">stdout_logfile_maxbytes=50MB              ; stdout最大文件大小，默认为50MB</span><br><span class="line">stdout_logfile_backups=10                 ; stdout文件备份数，设为0则不备份，默认为10</span><br></pre></td></tr></table></figure>
+
+<p>其实只需要配置3个参数，其它不用管：</p>
+<ul>
+<li><code>command=sh /root/supervisord/test.sh</code>： 我们的子进程启动命令；</li>
+<li><code>stdout_logfile=/tmp/supervisor.stdout.log</code>: 日志；</li>
+<li><code>program:test</code>：进程名为<code>test</code>，如果进程哪一天想停止启动等，需要进程名；</li>
+</ul>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>修改完后再次输入<code>supervisorctl reread</code> 应该就会获取到子进程配置文件并且启动进程了</p>
+<p>再不行就输入一下 <code>supervisorctl reload</code> (重启 supervisord), <code>supervisorctl update</code> (改动某配置文件，重新加载)什么的就大功告成啦:ok_hand:</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><strong>supervisorctl 常用命令</strong></p>
+<p>新增某配置文件，重新加载</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl reread</span><br></pre></td></tr></table></figure>
+
+<p>改动某配置文件，重新加载</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl update</span><br></pre></td></tr></table></figure>
+
+<p>重启 supervisord</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl reload</span><br></pre></td></tr></table></figure>
+
+<p>查看所有进程状态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl status</span><br></pre></td></tr></table></figure>
+
+<p>查看指定进程状态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl status &lt;name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>启动所有子进程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl start all</span><br></pre></td></tr></table></figure>
+
+<p>启动指定子进程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl start &lt;name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>重启所有子进程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl restart all</span><br></pre></td></tr></table></figure>
+
+<p>重启指定子进程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl restart &lt;name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>停止所有子进程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl stop all</span><br></pre></td></tr></table></figure>
+
+<p>停止指定子进程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl stop &lt;name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>添加子进程到进程组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl add &lt;name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>从进程组移除子进程，需要先stop。注意：移除后，需要使用reread和update才能重新运行该进程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl reomve &lt;name</span><br></pre></td></tr></table></figure>
+
+
+
+<p>关于centos使用supervisor可参考教程<a target="_blank" rel="noopener" href="https://m.qy.cn/jszx/detail/38310.html">https://m.qy.cn/jszx/detail/38310.html</a></p>
+
+        </div>
+          
+        <div class="top-div">
+          <ol class="top-box"><li class="top-box-item top-box-level-1"><a class="top-box-link" href="#supervisor%E4%BD%BF%E7%94%A8%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="top-box-text">supervisor使用相关问题</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E7%AE%80%E4%BB%8B"><span class="top-box-text">简介</span></a></li><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="top-box-text">常见问题</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#%E4%BA%A7%E7%94%9F%E5%8E%9F%E5%9B%A0%E5%8F%AF%E8%83%BD%E5%A6%82%E4%B8%8B"><span class="top-box-text">产生原因可能如下</span></a></li></ol></li><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="top-box-text">解决办法</span></a><ol class="top-box-child"><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#1-%E6%AD%A3%E7%A1%AE%E8%B7%AF%E5%BE%84"><span class="top-box-text">1.正确路径</span></a></li><li class="top-box-item top-box-level-3"><a class="top-box-link" href="#2-%E6%AD%A3%E7%A1%AE%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="top-box-text">2.正确配置文件</span></a></li></ol></li><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E6%9C%80%E5%90%8E"><span class="top-box-text">最后</span></a></li><li class="top-box-item top-box-level-2"><a class="top-box-link" href="#%E9%99%84%E5%BD%95"><span class="top-box-text">附录</span></a></li></ol></li></ol>
+        </div>
+          
+      </div>
+    </div>
+
+    
+      <div class="next-post">
+        <a class="purple-link" href="/2023/05/18/ji-dian-bao-hu-zhi-shi-dian/">
+          <h3 class="post-title">
+            
+            下一篇：继电保护知识点
+          </h3>
+        </a>
+      </div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+<footer>
+<div class="site-footer">
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  
+
+  
+
+  
+    <div>
+      <a href="https://beian.miit.gov.cn" target="_blank">鄂ICP备2023028588号-4</a>
+    </div>
+  
+
+  
+    <div>
+      <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">本站由 <img src="/images/upyun_logo.png" alt="又拍云" style="height:2em;vertical-align:-0.65em;"> 提供CDN加速/云存储服务</a>
+    </div>
+  
+
+</div>
+</footer>
+
+
+      </div>
+    </div>
+    
+<script id="hexo-configurations"> window.theme_config = {"image":{"lazyload_enable":true,"lazyload_placeholder":null,"photo_zoom":false},"search":{"enable":true,"type":"json","placeholder":"输入关键词搜索...","algolia":{"appID":"","apiKey":"","indexName":""}},"language":"zh-CN"}; window.is_post = true; </script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+

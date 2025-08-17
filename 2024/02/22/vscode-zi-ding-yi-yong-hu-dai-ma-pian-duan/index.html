@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+
+    
+<script>!function(){var e=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,t=localStorage.getItem("use-color-scheme")||"auto";("dark"===t||e&&"light"!==t)&&document.documentElement.classList.toggle("dark",!0)}()</script>
+    
+
+<meta charset="utf-8" >
+
+<title>vscode自定义用户代码片段</title>
+<meta name="keywords" content="vscode自定义用户代码片段, kk&#39;shining">
+<meta name="description" content="vscode自定义用户代码片段依次点击左下角设置齿轮 -&gt; User Snippets(用户代码片段)
+
+如果只想在某语言中用就选择对应语言
+如果想全局使用就选择New Global Snippets file
+
+ 输入代码
+主要就是">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="vscode自定义用户代码片段">
+<meta property="og:description" content="vscode自定义用户代码片段依次点击左下角设置齿轮 -&gt; User Snippets(用户代码片段)
+
+如果只想在某语言中用就选择对应语言
+如果想全局使用就选择New Global Snippets file
+
+ 输入代码
+主要就是">
+
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="stylesheet" href="/style/main.css">
+
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body>
+    <div id="app" class="main">
+
+<div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://blog.shiningonly.cn">
+        <img class="avatar" src="/images/avatar.png" alt="logo" width="32px" height="32px">
+      </a>
+      <a href="https://blog.shiningonly.cn">
+        <h1 class="site-title">kk&#39;shining</h1>
+      </a>
+    </div>
+    <div class="right">
+        <i class="icon menu-switch icon-menu-outline" ></i>
+    </div>
+  </div>
+</div>
+
+<div class="menu-container" style="height: 0;opacity: 0;">
+<nav class="menu-list">
+  
+    
+      <a href="/" class="menu purple-link">
+        首页
+      </a>
+    
+  
+    
+      <a href="/tags" class="menu purple-link">
+        标签
+      </a>
+    
+  
+    
+      <a href="/archives" class="menu purple-link">
+        归档
+      </a>
+    
+  
+    
+      <a href="/about" class="menu purple-link">
+        关于
+      </a>
+    
+  
+</nav>
+</div>
+
+
+
+  <div class="content-container">
+    <div class="post-detail">
+      
+      <h2 class="post-title">vscode自定义用户代码片段</h2>
+      <div class="post-info post-detail-info">
+        <span><i class="icon icon-calendar-outline"></i> 2024-02-22</span>
+        
+      </div>
+      <div class="post-content-wrapper">
+        <div class="post-content">
+          <h1 id="vscode自定义用户代码片段"><a href="#vscode自定义用户代码片段" class="headerlink" title="vscode自定义用户代码片段"></a>vscode自定义用户代码片段</h1><p>依次点击<strong>左下角设置齿轮</strong> -&gt; <strong>User Snippets</strong>(用户代码片段)</p>
+<ul>
+<li>如果只想在某语言中用就选择对应语言</li>
+<li>如果想全局使用就选择New Global Snippets file</li>
+</ul>
+<p> 输入代码</p>
+<p>主要就是四个部分：</p>
+<ol>
+<li><strong>key</strong>：代码提示弹窗显示的此Snippet的名字</li>
+<li><strong>scope</strong>：表明该Snippet在哪些语言文件内生效</li>
+<li><strong>prefix</strong>：指定触发此Snippet的关键字</li>
+<li><strong>body</strong>：为Snippet的模板内容</li>
+<li><strong>description</strong>：对此Snippet的描述</li>
+</ol>
+<p><strong>例</strong>: 箭头函数df</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;箭头函数&quot;</span>: &#123;		 <span class="comment">//代码片段名称</span></span><br><span class="line">		<span class="string">&quot;prefix&quot;</span>: <span class="string">&quot;df&quot;</span>,			 <span class="comment">//快捷键唤醒代码片段 可以自己设置成别的</span></span><br><span class="line">		<span class="string">&quot;body&quot;</span>: [		 		 <span class="comment">//body里面的内容就是代码段内容</span></span><br><span class="line">		<span class="string">&quot;($1) =&gt; &#123;$2&#125;&quot;</span>  		 <span class="comment">// $1和$2为占位符</span></span><br><span class="line">		],</span><br><span class="line">		<span class="string">&quot;description&quot;</span>: <span class="string">&quot;Arrow Function&quot;</span> <span class="comment">//代码片段的介绍描述</span></span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+        </div>
+          
+        <div class="top-div">
+          <ol class="top-box"><li class="top-box-item top-box-level-1"><a class="top-box-link" href="#vscode%E8%87%AA%E5%AE%9A%E4%B9%89%E7%94%A8%E6%88%B7%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="top-box-text">vscode自定义用户代码片段</span></a></li></ol>
+        </div>
+          
+      </div>
+    </div>
+
+    
+      <div class="next-post">
+        <a class="purple-link" href="/2024/01/16/vscode-tab-jian-zi-dong-bu-quan-zi-ding-yi-yuan-su-huo-zu-jian/">
+          <h3 class="post-title">
+            
+            下一篇：VSCode_Tab键自动补全自定义元素或组件
+          </h3>
+        </a>
+      </div>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+<footer>
+<div class="site-footer">
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  
+
+  
+
+  
+    <div>
+      <a href="https://beian.miit.gov.cn" target="_blank">鄂ICP备2023028588号-4</a>
+    </div>
+  
+
+  
+    <div>
+      <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">本站由 <img src="/images/upyun_logo.png" alt="又拍云" style="height:2em;vertical-align:-0.65em;"> 提供CDN加速/云存储服务</a>
+    </div>
+  
+
+</div>
+</footer>
+
+
+      </div>
+    </div>
+    
+<script id="hexo-configurations"> window.theme_config = {"image":{"lazyload_enable":true,"lazyload_placeholder":null,"photo_zoom":false},"search":{"enable":true,"type":"json","placeholder":"输入关键词搜索...","algolia":{"appID":"","apiKey":"","indexName":""}},"language":"zh-CN"}; window.is_post = true; </script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
+
